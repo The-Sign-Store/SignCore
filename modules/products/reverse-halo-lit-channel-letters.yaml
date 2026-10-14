@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=../../schemas/product.schema.json
+schema: signcore.product/v1
+name: Reverse / Halo Lit Channel Letters
+version: 1.0.0
+order: 60
+sections:
+  - component: HALO_LETTERS
+    title: Letters
+    include: required
+    repeatable: true
+    page_group: 1
+  - component: BACKER_PANEL
+    title: Backer Panel
+    include: optional-off
+    repeatable: false
+    page_group: 2
+  - component: ILLUMINATION
+    title: Illumination
+    include: required
+    repeatable: false
+    page_group: 2
+    defaults:
+      PHOTO CELL: Yes

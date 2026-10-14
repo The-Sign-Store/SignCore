@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: PNL_GROMMET_CORNERS
+version: 1.0.0
+title: GROMMETS - CORNERS
+category: Panel Finishing
+order: 250
+applies_to:
+  components:
+    - BANNER
+  when: GROMMETS=Yes & GROMMET SPACING=Corners Only
+notes: Grommets at the four corners only.

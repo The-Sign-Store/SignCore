@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: V10
+version: 1.0.0
+section: CUT VINYL (Graphtec 64 plotter)
+order: 370
+basis: SignOS
+applies_to:
+  components:
+    - POLY_FACE
+    - CHANNEL_LETTERS_FL
+    - ROUTED_FACE
+    - CLOUD_SIGN_FL
+standard: Lit faces get translucent vinyl only (Oracal 8500 / 8800). Opaque vinyl (651 / 751 / 951) goes on a
+  lit face only when it is meant to block light (outlines, blockout).
+why: Opaque vinyl shows as dark blotches at night.

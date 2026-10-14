@@ -1,0 +1,95 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: MONUMENT_BASE
+name: Monument Base
+version: 1.0.0
+order: 70
+description: Monument base/columns, reveal, cap and install plan.
+show_as_tool: true
+repeatable: false
+fields:
+  - variable: BASE SIZE
+    column: 1
+    type: dims
+    default: 132|24|16
+    options:
+      - W
+      - H
+      - D
+    required: true
+  - variable: BASE MATERIAL
+    label: MATERIAL
+    column: 1
+    type: select
+    default: Fabricated Aluminum
+    options:
+      - Fabricated Aluminum
+      - Foam w/ Stucco Coating
+      - Brick by Others
+      - Stone by Others
+      - Stucco by Others
+    required: true
+    signos: "Master_Mat_Metals: ALM_SHT_*, Cost_Frame_AlumAngle_*"
+  - variable: BASE FINISH
+    label: BASE COLOR
+    column: 2
+    type: finish
+    default: Black
+    options:
+      - Black
+      - Bronze
+      - White
+      - Brushed Aluminum
+      - By Others
+    required: true
+  - variable: REVEAL
+    column: 2
+    type: select
+    default: 2" Reveal
+    options:
+      - None
+      - 2" Reveal
+      - 3" Reveal
+  - variable: REVEAL FINISH
+    label: REVEAL COLOR
+    column: 2
+    type: finish
+    default: Black
+    options:
+      - Black
+      - Bronze
+      - White
+      - Brushed Aluminum
+    show_if: REVEAL!=None
+    required: true
+  - variable: CAP / TOPPER
+    label: CAP
+    column: 3
+    type: select
+    default: Aluminum Cap
+    options:
+      - None
+      - Aluminum Cap
+      - Stucco Cap
+  - variable: CAP FINISH
+    label: CAP COLOR
+    column: 3
+    type: finish
+    default: Match Cabinet
+    options:
+      - Match Cabinet
+      - Black
+      - Bronze
+      - White
+    show_if: CAP / TOPPER!=None
+    required: true
+  - variable: INSTALL PLAN
+    label: INSTALL
+    column: 4
+    type: select
+    default: Set Poles, Return Trip to Set Cabinet
+    options:
+      - Set Poles, Return Trip to Set Cabinet
+      - Customer Builds Base, We Install Cabinet
+      - Complete Install in One Trip
+    required: true

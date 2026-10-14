@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: N02
+version: 1.0.0
+section: PAINT AND FINISHES (paint booth / HVLP)
+order: 810
+basis: House
+applies_to:
+  when: GRAPHIC TYPE=Paint OR FINISH=Paint OR COMPONENT=HDU_SIGN|MONUMENT_BASE OR CABINET FINISH~=Custom OR POLE
+    FINISH~=Custom OR RETURN FINISH~=Custom
+standard: On the proof, paint colors use the SW / PMS hex from the Generator, with the note 'Screen colors
+  approximate - paint mixed to SW / PMS number'.
+why: Sets customer expectations; screens cannot show paint exactly.

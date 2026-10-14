@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=../../schemas/product.schema.json
+schema: signcore.product/v1
+name: Monument Signs
+version: 1.0.0
+order: 30
+sections:
+  - component: MONUMENT_BASE
+    title: Base
+    include: required
+    repeatable: false
+    page_group: 1
+  - component: CABINET
+    title: Cabinet
+    include: required
+    repeatable: false
+    page_group: 2
+    defaults:
+      CONSTRUCTION: Fabricated Aluminum
+      SIDEDNESS: Double Sided
+      MOUNTING: Monument Base
+      CABINET SIZE: 120|48|12
+  - component: ROUTED_FACE
+    title: Routed Faces
+    include: optional-on
+    repeatable: false
+    page_group: 2
+  - component: POLY_FACE
+    title: Polycarbonate Faces
+    include: optional-off
+    repeatable: false
+    page_group: 2
+    defaults:
+      FACE QTY: "2"
+  - component: POLE
+    title: Internal Poles
+    include: optional-on
+    repeatable: false
+    page_group: 1
+    defaults:
+      QUANTITY: "2"
+      OVERALL LENGTH: 8'
+      EMBED DEPTH: 36"
+  - component: ILLUMINATION
+    title: Illumination
+    include: optional-on
+    repeatable: false
+    page_group: 3
+  - component: EMC
+    title: Digital Sign (EMC)
+    include: optional-off
+    repeatable: false
+    page_group: 3
+  - component: MONUMENT_LETTERS
+    title: Monument Letters
+    include: optional-off
+    repeatable: true
+    page_group: 2

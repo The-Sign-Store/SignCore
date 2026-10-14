@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: F05
+version: 1.0.0
+section: COREL FILE SETUP AND PRODUCTION HANDOFF
+order: 250
+basis: Industry
+standard: Print art is built in CMYK. Brand matches are named spot colors with the PMS / SW number. Large
+  black areas = rich black C60 M40 Y40 K100; text under 1" and thin lines = 100 K only.
+why: Rich black prints deep on large areas; small black text in 4 colors blurs from registration.

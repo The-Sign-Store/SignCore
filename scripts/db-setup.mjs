@@ -9,7 +9,7 @@ const client = new pg.Client({ connectionString: url, ssl: /localhost|127\.0\.0\
 await client.connect();
 const { rows } = await client.query(`SELECT to_regclass('public.components') AS t`);
 if (rows[0].t) { console.error('The tables already exist in this database. Setup only runs on an empty database.'); await client.end(); process.exit(1); }
-for (const f of ['db/schema.sql', 'db/seed.sql']) {
+for (const f of ['db/schema.sql', 'db/seed.sql', 'db/migrations/002_modules.sql']) {
   process.stdout.write(`Running ${f}… `);
   await client.query(await readFile(new URL(`../${f}`, import.meta.url), 'utf8'));
   console.log('done');

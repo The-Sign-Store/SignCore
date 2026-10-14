@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: P06
+version: 1.0.0
+section: DIGITAL PRINT (HP Latex 300 roll / HP Latex R1000 flatbed)
+order: 440
+basis: Industry
+applies_to:
+  when: COMPONENT=DIGITAL_PRINT_VINYL|BANNER OR GRAPHIC TYPE~=Print OR COVER GRAPHICS~=Print OR FACE
+    GRAPHICS~=Print OR FACE VINYL~=Print
+standard: Export print files with File > Publish to PDF, preset PDF/X-4, 'Export all text as curves' on,
+  images embedded, bleed included. Name it _PRINT.pdf.
+why: One consistent print format for the RIP; no missing fonts.
+how_to: 'Publish to PDF > Settings: General = PDF/X-4; Objects = Export all text as curves; Prepress = Bleed
+  limit 0.5".'

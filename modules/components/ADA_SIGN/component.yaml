@@ -1,0 +1,170 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: ADA_SIGN
+name: ADA Sign
+version: 1.0.0
+order: 130
+description: Tactile / Braille ADA sign (one message per block).
+show_as_tool: false
+repeatable: true
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: number
+    default: "1"
+    required: true
+  - variable: SIGN SIZE
+    label: SIZE
+    column: 1
+    type: select
+    default: 8" x 8"
+    options:
+      - 4" x 4"
+      - 6" x 8"
+      - 8" x 8"
+      - 12" x 8"
+    required: true
+    signos: "PROD_ADA_Signs: RET_ADA_0404 / 0608 / 0808 / 1208"
+  - variable: MESSAGE
+    column: 1
+    type: text
+    default: RESTROOM
+    required: true
+  - variable: PICTOGRAM
+    column: 1
+    type: pictogram
+    signos: REF_Pictograms
+  - variable: CONSTRUCTION
+    column: 2
+    type: select
+    default: Ultra-Mattes Reverse 1/16"
+    options:
+      - Ultra-Mattes Reverse 1/16"
+      - Ultra-Mattes Reverse 1/8"
+      - Mattes Front 1/16"
+    required: true
+    signos: "Master_Mat_ADA: ADA_SUB_116_CORE / ADA_SUB_18_CORE"
+  - variable: BACKGROUND COLOR
+    label: BACKGROUND
+    column: 2
+    type: rowmark
+    options:
+      - Ultra-Mattes Reverse
+      - Mattes (Front)
+    required: true
+    signos: REF_Colors_Rowmark
+  - variable: CORNERS
+    column: 2
+    type: select
+    default: Square
+    options:
+      - Square
+      - Rounded
+  - variable: BACKER
+    column: 2
+    type: select
+    default: None
+    options:
+      - None
+      - 3mm Black PVC
+      - 3mm White PVC
+      - 3/16" Clear Acrylic
+    signos: "PROD_ADA_Signs: Cost_Sub_PVC / Cost_Sub_Acrylic"
+  - variable: TACTILE COPY
+    label: TACTILE
+    column: 3
+    type: select
+    default: Rowmark ADA Alternative 1/32"
+    options:
+      - Rowmark ADA Alternative 1/32"
+    required: true
+    signos: "Master_Mat_ADA: ADA_APP_132_TACT"
+    notes: 1/32" min raise (ADA 703.2.1)
+  - variable: TACTILE COLOR
+    column: 3
+    type: rowmark
+    options:
+      - ADA Alternative
+    required: true
+    signos: REF_Colors_Rowmark
+    notes: Must contrast with background
+  - variable: BRAILLE
+    column: 3
+    type: select
+    default: Grade 2 - Clear Raster
+    options:
+      - Grade 2 - Clear Raster
+      - Grade 2 - Color Raster
+    required: true
+    signos: "Master_Mat_ADA: ADA_RAS_BEAD"
+    notes: ADA 703.3
+  - variable: WINDOW / INSERT
+    label: INSERT
+    column: 4
+    type: select
+    default: None
+    options:
+      - None
+      - Paper Insert w/ Clear Lens
+      - Engraved Slider (Occupied / Vacant)
+    signos: "Master_Mat_ADA: ADA_SUB_116_LENS"
+  - variable: MOUNTING
+    column: 4
+    type: select
+    default: VHB Tape + Silicone
+    options:
+      - VHB Tape + Silicone
+      - Screws
+      - Standoffs
+    required: true
+    signos: "Master_Mat_Hardware: VIN_SUP_VHB_TPE"
+  - variable: STANDOFF MODEL
+    label: STANDOFF
+    column: 4
+    type: select
+    default: AL25-30A
+    options:
+      - AL25-30A
+      - AL16-25A
+    show_if: MOUNTING=Standoffs
+    required: true
+    notes: Aluminum standoff. Use Custom Input for other models / materials
+  - variable: STANDOFF SIZE
+    column: 4
+    type: text
+    default: 25 mm dia. x 30 mm
+    show_if: MOUNTING=Standoffs&STANDOFF MODEL=AL25-30A
+    required: true
+  - variable: STANDOFF SIZE - AL16
+    label: STANDOFF SIZE
+    column: 4
+    type: text
+    default: 16 mm dia. x 25 mm
+    show_if: MOUNTING=Standoffs&STANDOFF MODEL=AL16-25A
+    required: true
+  - variable: STANDOFF SIZE - CUSTOM
+    label: STANDOFF SIZE
+    column: 4
+    type: text
+    show_if: MOUNTING=Standoffs&STANDOFF MODEL=CUSTOM
+    required: true
+    notes: e.g. 3/4" dia. x 1"
+  - variable: STANDOFF FINISH
+    column: 4
+    type: select
+    default: Brushed Aluminum
+    options:
+      - Brushed Aluminum
+      - Satin Aluminum
+      - Black
+      - Chrome
+      - Gold
+    show_if: MOUNTING=Standoffs
+    required: true
+  - variable: LOCATION
+    column: 4
+    type: text
+    default: Latch side, 48"-60" AFF to baseline
+    required: true
+    signos: ADA 703.4.1

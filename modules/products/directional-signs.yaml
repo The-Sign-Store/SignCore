@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../schemas/product.schema.json
+schema: signcore.product/v1
+name: Directional Signs
+version: 1.0.0
+order: 50
+sections:
+  - component: SIGN_PANEL
+    title: Panel
+    include: required
+    repeatable: false
+    page_group: 1
+    defaults:
+      PANEL SIZE: 24|18
+      GRAPHIC TYPE: Direct Print
+  - component: PANEL_FRAME
+    title: Frame
+    include: required
+    repeatable: false
+    page_group: 1
+    defaults:
+      FRAME POSITION: Perimeter Cabinet Frame
+      FRAME MATERIAL: 1.5" Aluminum Angle
+  - component: POLE
+    title: Post
+    include: required
+    repeatable: false
+    page_group: 2
+    defaults:
+      QUANTITY: "1"
+      POLE MATERIAL: Aluminum
+      ALUMINUM POLE SIZE: 3" Square, 1/8" Wall
+      OVERALL LENGTH: 8'
+      EMBED DEPTH: 24"
+  - component: POLE_COVER
+    title: Pole Cover
+    include: optional-off
+    repeatable: false
+    page_group: 2
+  - component: ILLUMINATION
+    title: Illumination
+    include: optional-off
+    repeatable: false
+    page_group: 3

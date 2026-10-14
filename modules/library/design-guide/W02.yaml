@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: W02
+version: 1.0.0
+section: WHITE INK AND CLEAR MATERIALS (HP R1000)
+order: 490
+basis: Industry
+applies_to:
+  when: PRINT LAYERS~=White|Layer OR SIDEDNESS (CLEAR)=Second Surface Print OR GRAPHIC TYPE=2nd Surface Direct
+    Print OR MATERIAL COLOR=Clear & GRAPHIC TYPE~=Print OR MEDIA~=Clear
+standard: Choke the white 1/32" (0.03") inside the color edges.
+why: Stops a white halo around the art from slight registration shift.
+how_to: Contour tool > Inside, 0.03", 1 step > Ctrl+K, keep the inner shape as the white.

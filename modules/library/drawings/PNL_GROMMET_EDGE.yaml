@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: PNL_GROMMET_EDGE
+version: 1.0.0
+title: GROMMET SPACING
+category: Panel Finishing
+order: 240
+applies_to:
+  components:
+    - BANNER
+  when: GROMMETS=Yes & GROMMET SPACING~=Every
+notes: Grommets at corners and evenly spaced along hemmed edges.

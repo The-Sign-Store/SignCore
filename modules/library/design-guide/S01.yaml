@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: S01
+version: 1.0.0
+section: POLES, MONUMENTS AND STRUCTURE
+order: 740
+basis: House
+applies_to:
+  components:
+    - POLE
+    - MONUMENT_BASE
+standard: "Elevation drawing: grade line, overall height above grade, clearance to the sign bottom, cabinet
+  size, pole size and quantity, and embed depth ({EMBED DEPTH|per spec}). Heights in feet-inches."
+why: This is the drawing the permit office and the install crew both use.

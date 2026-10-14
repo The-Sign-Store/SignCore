@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: R01
+version: 1.0.0
+section: RIGID PANELS AND CNC (MultiCAM 5x10)
+order: 520
+basis: SignOS
+applies_to:
+  components:
+    - SIGN_PANEL
+    - ACM_PANEL
+    - PVC_PANEL
+    - CORO_SIGN
+    - ACRYLIC_PANEL
+    - BACKER_PANEL
+    - POLY_FACE
+standard: "Plan art on stock sheet sizes: Coroplast 48x96, ACM 48x96 / 48x120 / 60x120, PVC 48x96, acrylic
+  48x96, polycarbonate 52x120. Anything larger needs a seam; show the seam on the proof. Nest small signs to
+  the sheet."
+why: Sheet sizes come from SignOS INV_Sheets; a design that fits the sheet avoids a seam and saves material.

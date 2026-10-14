@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: A02
+version: 1.0.0
+section: ADA SIGNS
+order: 860
+basis: Industry
+applies_to:
+  components:
+    - ADA_SIGN
+standard: 'Braille: Grade 2, 3/8" to 1/2" below the last line of text. On the proof show it as a labeled
+  placeholder line (GRADE 2 BRAILLE) with the text it translates; production places the raster beads.'
+why: Braille dots drawn by hand are never accurate; production uses the braille translator.

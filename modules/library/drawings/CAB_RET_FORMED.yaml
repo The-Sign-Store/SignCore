@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: CAB_RET_FORMED
+version: 1.0.0
+title: FORMED RETAINER
+category: Cabinet Construction
+order: 170
+applies_to:
+  components:
+    - CABINET
+    - PANEL_FRAME
+  when: RETAINER TYPE=Formed OR RETAINERS~=Formed
+notes: "Formed (radius) retainer: bent profile gives a finished, beveled edge."

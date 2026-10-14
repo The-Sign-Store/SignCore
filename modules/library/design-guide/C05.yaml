@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: C05
+version: 1.0.0
+section: PROOF COLOR STANDARDS (how materials look on proofs)
+order: 150
+basis: House
+standard: "White material on a white page (white ACM, PVC, Coroplast, poly faces): fill white with a 0.5 pt
+  #B1B1B3 keyline on the PROOF only so the edge shows. Never put that keyline in production art."
+why: Without it a white panel disappears on the proof; with it in production it would print or cut.

@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: G10
+version: 1.0.0
+section: EVERY PROOF
+order: 100
+basis: House
+applies_to:
+  when: SIDEDNESS=Double Sided OR SIDEDNESS (CLEAR)=Double Sided OR SIDEDNESS (18OZ)=Double Sided
+standard: "Double sided: proof both sides, or note 'Side 2 identical'. Check that side 2 reads correctly (no
+  mirrored logos) and that both faces line up when built back to back."
+why: Back-to-back faces are a common reprint because the second side was flipped.

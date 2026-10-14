@@ -1,0 +1,148 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: HDU_SIGN
+name: HDU Sign
+version: 1.0.0
+order: 230
+description: Routed / sandblasted HDU sign, painted.
+show_as_tool: false
+repeatable: true
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: number
+    default: "1"
+    required: true
+  - variable: SIZE
+    label: DIMENSIONS
+    column: 1
+    type: dims
+    default: 48|48
+    options:
+      - W
+      - H
+    required: true
+  - variable: THICKNESS
+    column: 1
+    type: select
+    default: 1.5"
+    options:
+      - 1"
+      - 1.5"
+      - 2"
+    required: true
+    signos: "Master_Mat_Rigid: SUB_HDU_*"
+  - variable: SIDEDNESS
+    column: 2
+    type: select
+    default: Single Sided
+    options:
+      - Single Sided
+      - Double Sided
+    required: true
+  - variable: BACKGROUND PAINT
+    label: BACKGROUND
+    column: 2
+    type: paint
+    required: true
+  - variable: FOREGROUND PAINT
+    label: FOREGROUND
+    column: 2
+    type: paint
+    required: true
+  - variable: ACCENT PAINT 1
+    label: ACCENT
+    column: 2
+    type: paint
+    notes: Optional
+  - variable: ACCENT PAINT 2
+    label: ACCENT
+    column: 2
+    type: paint
+    notes: Optional
+  - variable: ROUTING
+    column: 3
+    type: select
+    default: Shape Only
+    options:
+      - Shape Only
+      - Standard Wash Out
+      - Textured
+    required: true
+  - variable: TEXTURE
+    column: 3
+    type: text
+    show_if: ROUTING=Textured
+    required: true
+    notes: e.g. wood grain, pebble
+  - variable: MOUNTING
+    column: 3
+    type: select
+    default: Stud Mount - Flush
+    options:
+      - None
+      - Stud Mount - Flush
+      - Stud Mount - Spacer
+      - Stand-offs
+      - Hanging Bracket - Swinging
+      - Hanging Bracket - Fixed
+      - Blade Bracket
+      - Custom
+    hide_values:
+      - None
+  - variable: MOUNTING DETAIL
+    label: MOUNT DETAIL
+    column: 3
+    type: text
+    show_if: MOUNTING~=Bracket|Spacer|Custom
+    required: true
+  - variable: STANDOFF MODEL
+    label: STANDOFF
+    column: 3
+    type: select
+    default: AL25-30A
+    options:
+      - AL25-30A
+      - AL16-25A
+    show_if: MOUNTING=Stand-offs
+    required: true
+    notes: Aluminum standoff. Use Custom Input for other models / materials
+  - variable: STANDOFF SIZE
+    column: 3
+    type: text
+    default: 25 mm dia. x 30 mm
+    show_if: MOUNTING=Stand-offs&STANDOFF MODEL=AL25-30A
+    required: true
+  - variable: STANDOFF SIZE - AL16
+    label: STANDOFF SIZE
+    column: 3
+    type: text
+    default: 16 mm dia. x 25 mm
+    show_if: MOUNTING=Stand-offs&STANDOFF MODEL=AL16-25A
+    required: true
+  - variable: STANDOFF SIZE - CUSTOM
+    label: STANDOFF SIZE
+    column: 3
+    type: text
+    show_if: MOUNTING=Stand-offs&STANDOFF MODEL=CUSTOM
+    required: true
+    notes: e.g. 3/4" dia. x 1"
+  - variable: STANDOFF FINISH
+    column: 3
+    type: select
+    default: Brushed Aluminum
+    options:
+      - Brushed Aluminum
+      - Satin Aluminum
+      - Black
+      - Chrome
+      - Gold
+    show_if: MOUNTING=Stand-offs
+    required: true
+  - variable: BRACKET PAINT
+    label: BRACKET COLOR
+    column: 3
+    type: paint
+    show_if: MOUNTING~=Bracket
+    required: true

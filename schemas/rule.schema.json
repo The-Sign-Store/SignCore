@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://signcore/schemas/rule.schema.json",
+  "title": "SignCore Design Guide rule",
+  "description": "One design standard. Lives at modules/library/design-guide/<ID>.yaml.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "version",
+    "section",
+    "order",
+    "basis",
+    "standard"
+  ],
+  "properties": {
+    "schema": {
+      "const": "signcore.rule/v1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z]{1,3}\\d{1,3}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "section": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "basis": {
+      "enum": [
+        "House",
+        "SignOS",
+        "Industry"
+      ]
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "applies_to": {
+      "$ref": "drawing.schema.json#/definitions/applies_to"
+    },
+    "standard": {
+      "type": "string",
+      "minLength": 1
+    },
+    "why": {
+      "type": "string"
+    },
+    "how_to": {
+      "type": "string",
+      "description": "CorelDRAW steps."
+    }
+  }
+}

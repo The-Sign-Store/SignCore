@@ -10,7 +10,12 @@
     "db:setup": "node scripts/db-setup.mjs",
     "cf:build": "opennextjs-cloudflare build",
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
+    "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "modules:export": "tsx scripts/modules/export.ts",
+    "modules:check": "tsx scripts/modules/check.ts",
+    "modules:publish": "tsx scripts/modules/publish.ts",
+    "modules:roundtrip": "tsx scripts/modules/roundtrip.ts",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "next": "15.5.26",
@@ -24,7 +29,10 @@
     "@types/pg": "8.23.1",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
+    "ajv": "8.20.0",
+    "tsx": "4.23.15",
     "typescript": "5.9.3",
-    "wrangler": "4.143.0"
+    "wrangler": "4.143.0",
+    "yaml": "2.9.1"
   }
 }

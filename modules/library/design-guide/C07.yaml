@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: C07
+version: 1.0.0
+section: PROOF COLOR STANDARDS (how materials look on proofs)
+order: 170
+basis: SignOS
+applies_to:
+  when: MEDIA~=Perf
+standard: "Perforated window film (60/40, 70/30): show the printed art at 75% opacity over the glass blue and
+  note 'PERF - see-through from inside'."

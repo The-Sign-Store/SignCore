@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: C06
+version: 1.0.0
+section: PROOF COLOR STANDARDS (how materials look on proofs)
+order: 160
+basis: House
+standard: "Metals: brushed aluminum = linear gradient #E6E8EA to #A7ADB2; mill aluminum = #C3C7CA flat;
+  stainless = #D0D4D8. Painted finishes use the Finish_Colors / SW / PMS hex from the Generator."
+how_to: Interactive Fill tool (G) > Linear gradient; set the two node colors by hex.

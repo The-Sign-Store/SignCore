@@ -3,9 +3,13 @@
 SignCore is the system of record for The Sign Store's products, components, specifications, design rules, detail drawings and color libraries. It is a Postgres database (Neon) plus a web admin (the Spec Manager) for editing it. It is the foundation for the rest of the Sign family of tools.
 
 ```
+modules/             product and component modules, Design Guide rules, detail drawings (the source; see docs/MODULE_FORMAT.md)
+schemas/             JSON Schemas for the module files
+scripts/modules/     check, publish, round-trip test, one-time export
 db/schema.sql        tables (run once on an empty database)
 db/seed.sql          your data, from the Google Sheet export of 2026-10-14 (K06 added; G02, G03, G04, G08, G09, F02 removed)
-scripts/db-setup.mjs runs both files against DATABASE_URL
+db/migrations/       later schema changes, applied in order
+scripts/db-setup.mjs runs schema, seed and migrations against DATABASE_URL
 app/                 the screens
 lib/                 database, login, SignCore conventions, exports
 ```
@@ -67,6 +71,12 @@ Import the GitHub repo in Vercel; it detects Next.js on its own. Add the same th
 SignCore still reads the Google Sheet. After editing, open **Export**, download the CSV for each tab you changed, and in the Sheet use **File › Import › Upload › Replace current sheet** with "Convert text to numbers, dates, and formulas" set to **No**. Don't rename tabs or headers, because Code.gs reads them by name.
 
 The long-term fix is for SignCore to read from Neon directly, or for the app to write to the Sheet automatically. Both are possible next steps.
+
+## Modules
+
+Products, components, Design Guide rules and detail drawings are defined as files in `modules/` and reviewed through pull requests. Merging publishes them into the database with `npm run modules:publish`. The format is described in [docs/MODULE_FORMAT.md](docs/MODULE_FORMAT.md).
+
+> Until the Spec Manager's Save button opens pull requests (next step), don't edit modules in the Spec Manager on a database that modules are published to. The next publish would overwrite those edits.
 
 ## Run it locally
 

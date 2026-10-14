@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: N01
+version: 1.0.0
+section: PAINT AND FINISHES (paint booth / HVLP)
+order: 800
+basis: House
+applies_to:
+  when: GRAPHIC TYPE=Paint OR FINISH=Paint OR COMPONENT=HDU_SIGN|MONUMENT_BASE OR CABINET FINISH~=Custom OR POLE
+    FINISH~=Custom OR RETURN FINISH~=Custom
+standard: "Paint callouts: Sherwin-Williams number + name (e.g. SW 7069 Iron Ore) or PMS 'painted to match'.
+  Sheen: satin unless the spec says otherwise."
+why: The paint booth mixes from the number; sheen changes how the color reads.

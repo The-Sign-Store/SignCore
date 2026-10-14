@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: PNL_POLE_POCKET
+version: 1.0.0
+title: POLE POCKETS
+category: Panel Finishing
+order: 260
+applies_to:
+  components:
+    - BANNER
+  when: POLE POCKETS=Yes
+notes: Sewn pockets for poles; locations from POCKET LOCATIONS.

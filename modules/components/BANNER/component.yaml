@@ -1,0 +1,114 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: BANNER
+name: Banner
+version: 1.0.0
+order: 210
+description: Vinyl banner with hems, grommets and pole pockets.
+show_as_tool: false
+repeatable: true
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: number
+    default: "1"
+    required: true
+  - variable: SIZE
+    label: DIMENSIONS
+    column: 1
+    type: dims
+    default: 48|24
+    options:
+      - W
+      - H
+    required: true
+    signos: 'PROD_Vinyl_Banners: Printer_Max_Roll_Width 64"'
+  - variable: MEDIA
+    column: 2
+    type: select
+    default: 13oz Standard
+    options:
+      - 13oz Standard
+      - 8oz Mesh
+      - 18oz
+    required: true
+    signos: "Master_Mat_Vinyl_Print: VIN_ROL_BAN_*"
+  - variable: SIDEDNESS (18OZ)
+    label: SIDEDNESS
+    column: 2
+    type: select
+    default: Single Sided
+    options:
+      - Single Sided
+      - Double Sided
+    show_if: MEDIA=18oz
+    required: true
+  - variable: SIDEDNESS
+    column: 2
+    type: select
+    default: Single Sided
+    options:
+      - Single Sided
+    show_if: MEDIA!=18oz
+    required: true
+    notes: 13oz and mesh are single sided only
+  - variable: GROMMETS
+    column: 3
+    type: select
+    default: Yes
+    options:
+      - Yes
+      - No
+    required: true
+    signos: "Master_Mat_Hardware: VIN_SUP_GRM_NI"
+  - variable: GROMMET SPACING
+    column: 3
+    type: select
+    default: Corners & Every 18"~24"
+    options:
+      - Corners & Every 18"~24"
+      - Corners Only
+    show_if: GROMMETS=Yes
+    required: true
+  - variable: GROMMET COLOR
+    column: 3
+    type: color
+    default: Nickel
+    options:
+      - Nickel
+      - Brass
+      - Black
+    show_if: GROMMETS=Yes
+    required: true
+  - variable: HEMS
+    column: 4
+    type: select
+    default: All 4 Sides
+    options:
+      - All 4 Sides
+      - None
+    required: true
+    signos: "Master_Mat_Hardware: VIN_SUP_HEM_TPE"
+  - variable: POLE POCKETS
+    column: 4
+    type: select
+    default: No
+    options:
+      - No
+      - Yes
+    required: true
+  - variable: POCKET LOCATIONS
+    column: 4
+    type: select
+    default: Top and Bottom
+    options:
+      - Top Only
+      - Bottom Only
+      - Left Only
+      - Right Only
+      - Top and Bottom
+      - Left and Right
+      - All 4 Sides
+    show_if: POLE POCKETS=Yes
+    required: true

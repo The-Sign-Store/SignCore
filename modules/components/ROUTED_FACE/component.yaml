@@ -1,0 +1,84 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: ROUTED_FACE
+name: Routed Aluminum Face
+version: 1.0.0
+order: 80
+description: Routed aluminum face with push-thru or backed copy.
+show_as_tool: true
+repeatable: false
+fields:
+  - variable: FACE QTY
+    label: FACES
+    column: 1
+    type: number
+    default: "2"
+    required: true
+  - variable: FACE GAUGE
+    label: FACE
+    column: 1
+    type: select
+    default: .080 Aluminum
+    options:
+      - .080 Aluminum
+      - .063 Aluminum
+      - .125 Aluminum
+    required: true
+    signos: "Master_Mat_Metals: ALM_SHT_080 / ALM_SHT_063"
+  - variable: FACE PAINT
+    label: FACE COLOR
+    column: 1
+    type: paint
+    required: true
+    signos: SW_Colors / PMS_Colors
+  - variable: COPY TYPE
+    label: COPY
+    column: 2
+    type: select
+    default: Push-Thru Acrylic
+    options:
+      - Push-Thru Acrylic
+      - Routed w/ Acrylic Backer
+      - Routed - Open (Non-Lit)
+    required: true
+  - variable: PUSH-THRU
+    column: 2
+    type: select
+    default: 1/2" Clear Acrylic
+    options:
+      - 1/2" Clear Acrylic
+      - 3/4" Clear Acrylic
+      - 1/2" White Acrylic
+      - 3/4" White Acrylic
+    show_if: COPY TYPE=Push-Thru Acrylic
+    required: true
+    signos: "Master_Mat_Rigid: SUB_ACR_12C_4X8 / SUB_ACR_34C_4X8"
+  - variable: BACKER
+    column: 2
+    type: select
+    default: 3/16" White Polycarbonate
+    options:
+      - 3/16" White Polycarbonate
+      - 3/16" White Acrylic
+    show_if: COPY TYPE=Routed w/ Acrylic Backer
+    required: true
+    signos: "INV_Sheets: SHT_POL_316_52X120"
+  - variable: DIFFUSER
+    column: 3
+    type: select
+    default: White Diffuser Vinyl
+    options:
+      - White Diffuser Vinyl
+      - None
+    show_if: COPY TYPE!=Routed - Open (Non-Lit)
+  - variable: COPY VINYL
+    label: COPY COLOR
+    column: 3
+    type: vinyl
+    default: "8500"
+    options:
+      - "8500"
+      - "8800"
+    show_if: COPY TYPE!=Routed - Open (Non-Lit)
+    signos: Master_Mat_Vinyl_Cut
+    notes: Leave blank for white copy

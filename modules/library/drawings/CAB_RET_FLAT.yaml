@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: CAB_RET_FLAT
+version: 1.0.0
+title: FLAT RETAINER
+category: Cabinet Construction
+order: 160
+applies_to:
+  components:
+    - CABINET
+    - PANEL_FRAME
+  when: RETAINER TYPE=Standard (Flat) OR RETAINERS~=Flat
+notes: Flat aluminum angle retainer screwed to the cabinet side.

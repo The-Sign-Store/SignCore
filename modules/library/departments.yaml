@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/departments.schema.json
+# Work order departments, from the Sign Suite Architecture Plan. DRAFT for the Step 0 session.
+schema: signcore.departments/v1
+departments:
+  - { key: vinyl, name: Vinyl }
+  - { key: metal-fabrication, name: Metal fabrication }
+  - { key: cnc-routing, name: CNC / routing }
+  - { key: electrical-led, name: Electrical / LED assembly }
+  - { key: paint-finishing, name: Paint and finishing }
+  - { key: digital-print, name: Digital print and lamination }
+  - { key: ada, name: ADA }
+  - { key: engineering, name: Engineering }
+  - { key: purchasing, name: Purchasing }
+  - { key: permits-csr, name: Permits and CSR }
+  - { key: subcontractors, name: Subcontractors }
+  - { key: qc-shipping, name: QC / shipping and receiving }
+  - { key: installation, name: Installation }
+  - { key: service, name: Service and maintenance }

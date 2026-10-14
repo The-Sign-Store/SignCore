@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=../../schemas/product.schema.json
+schema: signcore.product/v1
+name: Coroplast
+version: 1.0.0
+order: 100
+sections:
+  - component: CORO_SIGN
+    title: Coroplast
+    include: required
+    repeatable: true
+    page_group: 1
+legacy_fields:
+  - variable: QUANTITY
+    column: 1
+    default: "1"
+  - variable: WIDTH
+    column: 1
+    default: "24"
+  - variable: HEIGHT
+    column: 1
+    default: "18"
+  - variable: THICKNESS
+    column: 1
+    default: 4mm
+    options: 4mm, 10mm
+  - variable: SIDEDNESS
+    column: 2
+    default: Double Sided
+    options: Single Sided, Double Sided
+  - variable: MATERIAL COLOR
+    column: 2
+    default: White
+    options: White, Custom
+  - variable: GRAPHIC TYPE
+    column: 2
+    default: Direct Print
+    options: None, Direct Print, Digital Print Vinyl, Digital Print Contour Cut Vinyl, Contour Cut Vinyl, Paint
+  - variable: OVERLAMINATE
+    column: 3
+    default: None
+    options: None, Arlon 3210 Premium Laminate, 3M 8518 Wrap Gloss Laminate, 3M 8519 Wrap Luster Laminate, 3M 8520
+      Wrap Matte Laminate
+  - variable: GRAPHIC COLOR
+    column: 3
+    default: Full Color Digital
+    options: Full Color Digital
+  - variable: ROUTING
+    column: 3
+    default: No
+    options: No, Yes - Simple, Yes - Complex
+  - variable: STEP STAKE
+    column: 3
+    default: No
+    options: No, Yes

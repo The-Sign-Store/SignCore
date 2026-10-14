@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: CAB_STICK
+version: 1.0.0
+title: STICK BUILT CABINET
+category: Cabinet Construction
+order: 150
+applies_to:
+  components:
+    - CABINET
+  when: CONSTRUCTION~=Stick Built
+notes: "Side section: aluminum angle frame wrapped in aluminum skin; separate screwed retainer."

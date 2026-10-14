@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: V05
+version: 1.0.0
+section: CUT VINYL (Graphtec 64 plotter)
+order: 320
+basis: House
+applies_to:
+  when: COMPONENT=CUT_VINYL_DECAL OR GRAPHIC TYPE=Cut Vinyl|Contour Cut Vinyl|Translucent Cut Vinyl OR COVER
+    GRAPHICS~=Cut Vinyl OR FACE GRAPHICS~=Cut Vinyl OR FACE VINYL=Translucent Vinyl OR COMPONENT=ROUTED_FACE &
+    DIFFUSER=White Diffuser Vinyl
+standard: Layered colors overlap 1/16" (trap). Never butt two colors edge to edge.
+why: Butted vinyl opens a gap as it shrinks; the overlap hides it.
+how_to: Contour tool > Outside, 0.0625", 1 step. Ctrl+K to break the contour apart and use it as the bottom
+  color shape.

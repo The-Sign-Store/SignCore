@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: A01
+version: 1.0.0
+section: ADA SIGNS
+order: 850
+basis: Industry
+applies_to:
+  components:
+    - ADA_SIGN
+standard: 'Tactile copy: UPPERCASE, sans serif, raised 1/32" (Rowmark ADA Alternative), cap height 5/8" to 2"
+  measured on the uppercase I, at least 1/8" between characters. Use an ADA-set font (Arial Medium, Helvetica
+  Medium, Futura Medium...).'
+why: ADA 2010 standards as summarized in our ADA reference guide.

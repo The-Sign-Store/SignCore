@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: R06
+version: 1.0.0
+section: RIGID PANELS AND CNC (MultiCAM 5x10)
+order: 570
+basis: House
+applies_to:
+  when: MOUNTING~=Stud OR BACKER MOUNTING=Stud Mount
+standard: 'Stud mounts: 2 studs minimum per letter or part, 3 or more for parts over 24". Mark them as GREEN
+  drill points on the route file and on a 1:1 paper install pattern page.'
+why: Install drills the wall from the pattern; production drills the parts from the same points.

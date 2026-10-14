@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: R04
+version: 1.0.0
+section: RIGID PANELS AND CNC (MultiCAM 5x10)
+order: 550
+basis: House
+applies_to:
+  when: CUSTOM SHAPE~=Yes OR ROUTING~=Yes OR ROUTING=Push-Thru OR BACKER TYPE=Custom Shape (Routed) OR
+    COMPONENT=PVC_ROUTED_LETTERS|HDU_SIGN|ROUTED_FACE
+standard: "Route file: closed hairline curves only, color coded (RED outside, BLUE inside, GREEN pocket /
+  drill), welded, nodes reduced, 1:1, no fills, no text objects. Export as _ROUTE.dxf."
+why: Clean geometry imports straight into the CAM software with no cleanup.
+how_to: Select the route art > File > Export > DXF, Selected only, version R14, units inches, export text as curves.

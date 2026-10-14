@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: CUT_VINYL_DECAL
+name: Cut Vinyl Decal
+version: 1.0.0
+order: 190
+description: Oracal cut vinyl with weeding and masking.
+show_as_tool: false
+repeatable: true
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: number
+    default: "1"
+    required: true
+  - variable: SIZE
+    label: DIMENSIONS
+    column: 1
+    type: dims
+    default: 12|12
+    options:
+      - W
+      - H
+    required: true
+  - variable: VINYL COLOR
+    label: VINYL
+    column: 2
+    type: vinyl
+    default: 751RA
+    options:
+      - 751RA
+      - "951"
+      - "8800"
+      - "8500"
+      - "8810"
+      - "8510"
+      - "7510"
+      - "6510"
+      - "651"
+      - "631"
+    required: true
+    signos: Master_Mat_Vinyl_Cut
+  - variable: WEEDING
+    column: 3
+    type: select
+    default: Easy
+    options:
+      - No
+      - Easy
+      - Complex
+    required: true
+  - variable: MASK
+    column: 3
+    type: select
+    default: Yes
+    options:
+      - No
+      - Yes
+    required: true

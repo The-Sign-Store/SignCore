@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: S04
+version: 1.0.0
+section: POLES, MONUMENTS AND STRUCTURE
+order: 770
+basis: Industry
+applies_to:
+  components:
+    - POLE
+standard: Any proof with a footer or ground anchor includes the note 'Call 811 before digging'.
+why: Utility locates are required before digging in the US.

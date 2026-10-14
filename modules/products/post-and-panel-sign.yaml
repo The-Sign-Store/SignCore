@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../schemas/product.schema.json
+schema: signcore.product/v1
+name: Post and Panel Sign
+version: 1.0.0
+order: 40
+sections:
+  - component: SIGN_PANEL
+    title: Panel
+    include: required
+    repeatable: false
+    page_group: 1
+    defaults:
+      MEDIA: 3M IJ180 Wrap Vinyl
+      OVERLAMINATE: 3M 8518 Wrap Gloss Laminate
+  - component: PANEL_FRAME
+    title: Frame
+    include: required
+    repeatable: false
+    page_group: 1
+  - component: POLE
+    title: Posts
+    include: required
+    repeatable: false
+    page_group: 2
+    defaults:
+      POLE MATERIAL: Aluminum
+      ALUMINUM POLE SIZE: 3" Square, 1/8" Wall
+      OVERALL LENGTH: 8'
+      EMBED DEPTH: 24"

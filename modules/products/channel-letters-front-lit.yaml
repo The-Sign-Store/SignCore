@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../schemas/product.schema.json
+schema: signcore.product/v1
+name: Channel Letters - Front Lit
+version: 1.0.0
+order: 160
+sections:
+  - component: CHANNEL_LETTERS_FL
+    title: Channel Letters - Front Lit
+    include: required
+    repeatable: true
+    page_group: 1
+legacy_fields:
+  - variable: QUANTITY
+    column: 1
+    default: "1"
+  - variable: LETTER HEIGHT
+    column: 1
+    default: "18"
+  - variable: TEXT
+    column: 1
+  - variable: FACE MATERIAL
+    column: 2
+    default: 3/16" Acrylic
+    options: 3/16" Acrylic
+  - variable: FACE COLOR
+    column: 2
+    default: White
+    options: Clear, White, Red
+  - variable: VINYL SERIES
+    column: 2
+    default: None
+    options: None, 8500, 8800, Translucent Digital Print
+  - variable: VINYL COLOR
+    column: 2
+    default: Select...
+  - variable: RETURN
+    column: 3
+    default: 5" .040
+    options: 5" .040, 3" .040
+  - variable: RETURN COLOR
+    column: 3
+    default: Gloss Black
+  - variable: TRIM CAP
+    column: 3
+    default: 1"
+    options: 1", 2"
+  - variable: TRIM CAP COLOR
+    column: 3
+    default: Black
+  - variable: LED COLOR
+    column: 4
+    default: White
+    options: White, Red, Blue, Green, Yellow
+  - variable: MOUNTING
+    column: 4
+    default: Flush Mount
+    options: Flush Mount, Raceway, Panel
+  - variable: MOUNTING PAINT COLOR
+    column: 4
+    default: Select...

@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: A05
+version: 1.0.0
+section: ADA SIGNS
+order: 890
+basis: Industry
+applies_to:
+  components:
+    - ADA_SIGN
+standard: 'Add the mounting note to every ADA proof: latch side of the door, 48" minimum to the baseline of
+  the lowest tactile line, 60" maximum to the highest, centered on an 18" x 18" clear floor space.'
+why: Install mounts from this note.

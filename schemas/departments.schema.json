@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://signcore/schemas/departments.schema.json",
+  "title": "SignCore work order departments",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "departments"],
+  "properties": {
+    "schema": { "const": "signcore.departments/v1" },
+    "departments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["key", "name"],
+        "properties": { "key": { "type": "string", "pattern": "^[a-z0-9-]+$" }, "name": { "type": "string" }, "notes": { "type": "string" } }
+      }
+    }
+  }
+}

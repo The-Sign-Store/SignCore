@@ -1,0 +1,146 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: EMC
+name: Digital Sign (EMC)
+version: 1.0.0
+order: 60
+description: Electronic message center by vendor.
+show_as_tool: true
+repeatable: false
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: number
+    default: "1"
+    required: true
+  - variable: SIDEDNESS
+    column: 1
+    type: select
+    default: Single Sided
+    options:
+      - Single Sided
+      - Double Sided
+    required: true
+  - variable: MODULES WIDE
+    column: 1
+    type: number
+    required: true
+    notes: Modules are 9.45" x 9.45"
+  - variable: MODULES HIGH
+    column: 1
+    type: number
+    required: true
+    notes: Modules are 9.45" x 9.45"
+  - variable: DISPLAY SIZE
+    column: 1
+    type: calc
+    options:
+      - W={MODULES WIDE}*9.45
+      - H={MODULES HIGH}*9.45
+    notes: 'Calculated: modules x 9.45"'
+  - variable: PIXEL PITCH
+    label: PITCH
+    column: 2
+    type: select
+    default: 10mm (FLEX Ultra)
+    options:
+      - 5mm (FLEX Ultra)
+      - 6mm (FLEX Ultra)
+      - 8mm (FLEX Ultra)
+      - 10mm (FLEX Ultra)
+      - 12mm (FLEX Enhanced)
+      - 16mm (FLEX Enhanced)
+      - 20mm (FLEX Enhanced)
+    required: true
+    notes: "FLEX Ultra Resolution: 5-10mm. FLEX Enhanced Resolution: 12-20mm"
+  - variable: COLOR TYPE
+    label: DISPLAY
+    column: 2
+    type: select
+    default: Full Color
+    options:
+      - Full Color
+      - Monochrome Amber
+      - Monochrome Red
+    required: true
+  - variable: MODULE SIZE
+    column: 2
+    type: text
+    default: 9.45" x 9.45" (front view)
+  - variable: VENDOR
+    column: 2
+    type: text
+    default: Farm Out
+  - variable: MODULE DEPTH
+    column: 3
+    type: number
+    default: "1.5"
+    options:
+      - '"'
+    required: true
+  - variable: LED CABINET DEPTH
+    label: LED CABINET
+    column: 3
+    type: number
+    default: "5"
+    options:
+      - '"'
+    required: true
+  - variable: BACK ANGLE DEPTH
+    label: BACK ANGLE
+    column: 3
+    type: number
+    default: "3"
+    options:
+      - '"'
+    required: true
+    notes: Angle on the back of the sign
+  - variable: POLE WIDTH
+    label: POLE BETWEEN FACES
+    column: 3
+    type: number
+    default: "4"
+    options:
+      - '"'
+    show_if: SIDEDNESS=Double Sided
+    required: true
+  - variable: OVERALL DEPTH
+    column: 3
+    type: calc
+    options:
+      - "{MODULE DEPTH}+{LED CABINET DEPTH}+{BACK ANGLE DEPTH}"
+    show_if: SIDEDNESS=Single Sided
+    notes: "Calculated: module + LED cabinet + back angle"
+  - variable: OVERALL DEPTH - DS
+    label: OVERALL DEPTH
+    column: 3
+    type: calc
+    options:
+      - 2*({MODULE DEPTH}+{LED CABINET DEPTH}+{BACK ANGLE DEPTH})+{POLE WIDTH}
+    show_if: SIDEDNESS=Double Sided
+    notes: "Calculated: both faces + pole"
+  - variable: CABINET DEPTH
+    column: 3
+    type: calc
+    options:
+      - "{LED CABINET DEPTH}+{BACK ANGLE DEPTH}"
+    show_if: SIDEDNESS=Single Sided
+    notes: "Calculated: modules extend past the cabinet face"
+  - variable: CABINET DEPTH - DS
+    label: CABINET DEPTH
+    column: 3
+    type: calc
+    options:
+      - 2*({LED CABINET DEPTH}+{BACK ANGLE DEPTH})+{POLE WIDTH}
+    show_if: SIDEDNESS=Double Sided
+    notes: "Calculated: modules extend past the cabinet on both faces"
+  - variable: VENT FINISH
+    label: VENTS
+    column: 4
+    type: finish
+    default: Black
+    options:
+      - Black
+      - Bronze
+      - Match Cabinet

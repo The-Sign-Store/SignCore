@@ -1,0 +1,91 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: POLY_FACE
+name: Polycarbonate Face
+version: 1.0.0
+order: 40
+description: Cabinet face (polycarbonate, acrylic, pan or flex) and its graphics.
+show_as_tool: true
+repeatable: false
+fields:
+  - variable: FACE QTY
+    label: FACES
+    column: 1
+    type: number
+    default: "1"
+    required: true
+    notes: 1 = single sided, 2 = double sided
+  - variable: FACE MATERIAL
+    label: FACE
+    column: 1
+    type: select
+    default: 3/16" White Polycarbonate
+    options:
+      - 3/16" White Polycarbonate
+      - 1/4" White Polycarbonate
+      - 3/16" Clear Polycarbonate
+      - 3/16" White Acrylic
+      - Pan Face - Flat
+      - Pan Face - Embossed
+      - Flex Face
+    required: true
+    signos: 'INV_Sheets: SHT_POL_316_52X120 (52" x 120" max)'
+    notes: Use Pan Face Worksheet for pan faces
+  - variable: FACE SIZE
+    column: 1
+    type: dims
+    options:
+      - W
+      - H
+    notes: Cabinet minus 0.25" (pan face)
+  - variable: GRAPHIC TYPE
+    label: GRAPHIC
+    column: 2
+    type: select
+    default: Translucent Cut Vinyl
+    options:
+      - Translucent Cut Vinyl
+      - Translucent Digital Print
+      - 2nd Surface Direct Print
+      - None
+    required: true
+  - variable: FACE VINYL
+    label: VINYL
+    column: 2
+    type: vinyl
+    default: "8500"
+    options:
+      - "8500"
+      - "8800"
+    show_if: GRAPHIC TYPE=Translucent Cut Vinyl
+    required: true
+    signos: "Master_Mat_Vinyl_Cut: VIN_ROL_TRN_8500 / 8800"
+  - variable: PRINT MEDIA
+    label: MEDIA
+    column: 2
+    type: select
+    default: Oracal 3850 Translucent
+    options:
+      - Oracal 3850 Translucent
+    show_if: GRAPHIC TYPE=Translucent Digital Print
+    required: true
+    signos: "Master_Mat_Vinyl_Print: VIN_ROL_PRT_3850"
+  - variable: PRINT LAYERS
+    label: PRINT
+    column: 2
+    type: select
+    default: Color + White
+    options:
+      - Color + White
+      - 3-Layer (Day / Night)
+      - 5-Layer Blockout
+    show_if: GRAPHIC TYPE=2nd Surface Direct Print
+    required: true
+    signos: "PROD_Acrylic_Signs: Speed_Print_White / 3Layer / 5Layer"
+    notes: HP R1000
+  - variable: ADDITIONAL COLORS
+    label: ALSO
+    column: 3
+    type: text
+    show_if: GRAPHIC TYPE=Translucent Cut Vinyl
+    notes: e.g. 8500-031 Red (logo)

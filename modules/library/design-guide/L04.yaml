@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: L04
+version: 1.0.0
+section: CHANNEL LETTERS AND HALO LETTERS
+order: 650
+basis: House
+applies_to:
+  components:
+    - CHANNEL_LETTERS_FL
+    - CLOUD_SIGN_FL
+standard: Call out face, return and trim cap colors on the proof (return {RETURN|per spec}, trim cap {TRIM
+  CAP|per spec}). Trim cap matches the return unless the spec says otherwise.
+why: Trim cap color is the most common missing callout on letter sets.

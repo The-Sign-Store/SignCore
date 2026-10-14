@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: R05
+version: 1.0.0
+section: RIGID PANELS AND CNC (MultiCAM 5x10)
+order: 560
+basis: SignOS
+applies_to:
+  when: CUSTOM SHAPE~=Yes OR ROUTING~=Yes OR ROUTING=Push-Thru OR BACKER TYPE=Custom Shape (Routed) OR
+    COMPONENT=PVC_ROUTED_LETTERS|HDU_SIGN|ROUTED_FACE
+standard: Nest parts on the 5x10 bed (60" x 120") with 1/2" between parts and 1" from the sheet edge.
+why: Matches the MultiCAM 5x10 tables (SignOS Master_Machines_Fleet).
+how_to: Draw a 60x120 rectangle on PRODUCTION as the bed; Arrange > Align and Distribute (Ctrl+Shift+A) to
+  space parts.

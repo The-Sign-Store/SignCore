@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: P08
+version: 1.0.0
+section: DIGITAL PRINT (HP Latex 300 roll / HP Latex R1000 flatbed)
+order: 460
+basis: SignOS
+applies_to:
+  when: MEDIA~=Perf
+standard: 'Window perf (60/40, 70/30): text at least 3" tall, no hairlines (the holes eat detail), keep key
+  copy off window mullions. Exterior perf gets optically clear laminate.'

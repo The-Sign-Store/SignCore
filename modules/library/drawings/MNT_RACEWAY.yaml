@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: MNT_RACEWAY
+version: 1.0.0
+title: RACEWAY MOUNT
+category: Mounting
+order: 50
+applies_to:
+  components:
+    - CHANNEL_LETTERS_FL
+    - CLOUD_SIGN_FL
+  when: MOUNTING=Raceway
+notes: Letters mounted to a painted raceway; power supply inside the raceway.

@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: MNT_BLADE
+version: 1.0.0
+title: BLADE BRACKET
+category: Mounting
+order: 100
+applies_to:
+  when: MOUNTING=Blade Bracket
+notes: Projecting (blade) sign held off the wall by a bracket; readable from both sides.

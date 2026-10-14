@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: F01
+version: 1.0.0
+section: COREL FILE SETUP AND PRODUCTION HANDOFF
+order: 210
+basis: House
+standard: "Standard layers, top to bottom: NOTES (non-printing), PRODUCTION (non-printing on the proof page),
+  ART, MOCKUP (locked), PROOF TEMPLATE (locked)."
+why: Anyone opening the file knows what prints, what is reference, and what is a production line.
+how_to: Window > Dockers > Objects. New Layer; click the printer icon to make it non-printing, the lock icon
+  to lock it.

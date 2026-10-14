@@ -1,0 +1,133 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: POLE
+name: Pole
+version: 1.0.0
+order: 10
+description: Steel, aluminum or wood poles/posts with footer and finish.
+show_as_tool: true
+repeatable: false
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: number
+    default: "2"
+    required: true
+  - variable: POLE MATERIAL
+    label: MATERIAL
+    column: 1
+    type: select
+    default: Steel
+    options:
+      - Steel
+      - Aluminum
+      - Wood
+    required: true
+  - variable: STEEL POLE SIZE
+    label: POLE SIZE
+    column: 1
+    type: select
+    default: 4" Square, 3/16" Wall
+    options:
+      - 3" Square, 1/8" Wall
+      - 3" Square, 3/16" Wall
+      - 4" Square, 1/8" Wall
+      - 4" Square, 3/16" Wall
+      - 6" Square, 3/16" Wall
+      - 6" Square, 1/4" Wall
+      - 8" Square, 3/16" Wall
+      - 8" Square, 1/4" Wall
+      - 10" Square, 1/4" Wall
+      - 12" Square, 1/4" Wall
+    show_if: POLE MATERIAL=Steel
+    required: true
+    signos: "Master_Mat_Metals: Cost_Post_Steel_* / STL_POLE_*"
+    notes: Final size per engineering
+  - variable: ALUMINUM POLE SIZE
+    label: POLE SIZE
+    column: 1
+    type: select
+    default: 3" Square, 1/8" Wall
+    options:
+      - 2" Square, 1/8" Wall
+      - 3" Square, 1/8" Wall
+      - 4" Square, 1/8" Wall
+      - 6" Square, 1/8" Wall
+      - 6" Square, 1/4" Wall
+    show_if: POLE MATERIAL=Aluminum
+    required: true
+    signos: "Master_Mat_Metals: Cost_Post_Aluminum_* / ALM_TUBE_*"
+  - variable: WOOD POST SIZE
+    label: POST SIZE
+    column: 1
+    type: select
+    default: 4" x 4" Treated
+    options:
+      - 4" x 4" Treated
+      - 4" x 4" Treated, Painted
+    show_if: POLE MATERIAL=Wood
+    required: true
+    signos: "Master_Mat_Hardware: 4x4x*_Nat / 4x4x*_Pnt / LBR_WOOD_4X4_8"
+  - variable: OVERALL LENGTH
+    label: LENGTH
+    column: 2
+    type: select
+    default: 10'
+    options:
+      - 8'
+      - 10'
+      - 12'
+      - 14'
+      - 16'
+      - 20'
+      - 24'
+      - Per Engineering
+    required: true
+    signos: "Wood stock: 8' / 10' / 12' / 16'"
+    notes: Above grade + embed
+  - variable: EMBED DEPTH
+    label: EMBED
+    column: 2
+    type: select
+    default: 36"
+    options:
+      - 24"
+      - 30"
+      - 36"
+      - 48"
+      - 60"
+      - Per Engineering
+    required: true
+  - variable: FOOTER
+    column: 2
+    type: select
+    default: Concrete (80 lb Bags)
+    options:
+      - Concrete (80 lb Bags)
+      - Engineered Concrete Footer
+      - Direct Burial
+      - Surface Mount Base Plate
+    required: true
+    signos: "Master_Mat_Hardware: FAB_SUP_CON_BAG"
+  - variable: POLE FINISH
+    label: FINISH
+    column: 3
+    type: finish
+    default: Black
+    options:
+      - Black
+      - Bronze
+      - White
+      - Mill / Unpainted
+      - Natural Wood
+    required: true
+  - variable: POLE CAP
+    column: 3
+    type: select
+    default: Yes
+    options:
+      - Yes
+      - No
+    show_if: POLE MATERIAL!=Wood
+    signos: "Master_Mat_Hardware: HRD_CAP_ALUM_3"

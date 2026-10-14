@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: V03
+version: 1.0.0
+section: CUT VINYL (Graphtec 64 plotter)
+order: 300
+basis: Industry
+applies_to:
+  when: COMPONENT=CUT_VINYL_DECAL OR GRAPHIC TYPE=Cut Vinyl|Contour Cut Vinyl|Translucent Cut Vinyl OR COVER
+    GRAPHICS~=Cut Vinyl OR FACE GRAPHICS~=Cut Vinyl OR FACE VINYL=Translucent Vinyl OR COMPONENT=ROUTED_FACE &
+    DIFFUSER=White Diffuser Vinyl
+standard: 'Minimum sizes: letters 1/2" cap height and lines / details 1/16" wide. Anything smaller is printed
+  instead. Thin scripts or serifs under 1/8" = mark WEEDING Complex on the spec.'
+why: Small cut detail lifts and tears when weeded; SignOS prices complex weeding separately.

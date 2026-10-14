@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: LTR_FRONT_LIT
+version: 1.0.0
+title: FRONT LIT SECTION
+category: Letter Construction
+order: 110
+applies_to:
+  components:
+    - CHANNEL_LETTERS_FL
+    - MONUMENT_LETTERS
+    - CLOUD_SIGN_FL
+  when: COMPONENT=CHANNEL_LETTERS_FL|CLOUD_SIGN_FL OR LIGHTING=Front Lit
+notes: "Section through one letter stroke: LEDs light the acrylic face from inside."

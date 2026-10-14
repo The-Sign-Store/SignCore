@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://signcore/schemas/drawing.schema.json",
+  "title": "SignCore detail drawing",
+  "description": "A small construction drawing. modules/library/drawings/<ID>.yaml plus <ID>.svg (a full SVG on a 100 x 100 viewBox).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "version",
+    "title"
+  ],
+  "properties": {
+    "schema": {
+      "const": "signcore.drawing/v1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9_]+$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "applies_to": {
+      "$ref": "#/definitions/applies_to"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "applies_to": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z0-9_]+$"
+          },
+          "description": "Blank = any component."
+        },
+        "when": {
+          "type": "string",
+          "description": "Show_If syntax plus OR between alternatives. COMPONENT=ID tests the component itself."
+        }
+      }
+    }
+  }
+}

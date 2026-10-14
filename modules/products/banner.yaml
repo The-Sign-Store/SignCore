@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=../../schemas/product.schema.json
+schema: signcore.product/v1
+name: Banner
+version: 1.0.0
+order: 150
+sections:
+  - component: BANNER
+    title: Banner
+    include: required
+    repeatable: true
+    page_group: 1
+legacy_fields:
+  - variable: QUANTITY
+    column: 1
+    default: "1"
+  - variable: WIDTH
+    column: 1
+    default: "48"
+  - variable: HEIGHT
+    column: 1
+    default: "24"
+  - variable: MEDIA
+    column: 2
+    default: 13oz Standard
+    options: 13oz Standard, 8oz Mesh, 18oz
+  - variable: SIDEDNESS
+    column: 2
+    default: Single Sided
+    options: Single Sided, Double Sided
+  - variable: GROMMETS
+    column: 3
+    default: Yes
+    options: Yes, No
+  - variable: GROMMET SPACING
+    column: 3
+    default: Corners & Every 18"~24"
+    options: Corners & Every 18"~24", Corners Only
+  - variable: GROMMET COLOR
+    column: 3
+    default: Nickel
+    options: Nickel, Brass, Black
+  - variable: HEMS
+    column: 4
+    default: All 4 Sides
+    options: All 4 Sides, None
+  - variable: POLE POCKETS
+    column: 4
+    default: No
+    options: No, Yes
+  - variable: POCKET LOCATIONS
+    column: 4
+    default: Top and Bottom
+    options: Top Only, Bottom Only, Left Only, Right Only, Top and Bottom, Left and Right, All 4 Sides

@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: L01
+version: 1.0.0
+section: CHANNEL LETTERS AND HALO LETTERS
+order: 620
+basis: Industry
+applies_to:
+  components:
+    - CHANNEL_LETTERS_FL
+standard: 'Lit letter size: 12" minimum cap height with 5" returns, 8" minimum with 3" returns; stroke at
+  least 1.5" wide (2" preferred) so LED modules fit. Thinner fonts go halo lit or non-lit.'
+why: LED modules need room inside the stroke or the letter shows hot spots.

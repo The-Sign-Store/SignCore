@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: F03
+version: 1.0.0
+section: COREL FILE SETUP AND PRODUCTION HANDOFF
+order: 230
+basis: House
+standard: Before converting text to curves, copy the live text to a hidden non-printing layer named EDITABLE
+  TEXT. Production pages carry curves only.
+why: Curves cannot change font on the shop computers; the hidden copy keeps future revisions quick.
+how_to: Ctrl+C the text, select the EDITABLE TEXT layer, Edit > Paste in Place. Hide the layer (eye icon).

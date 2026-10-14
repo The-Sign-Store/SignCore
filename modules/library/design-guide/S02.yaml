@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: S02
+version: 1.0.0
+section: POLES, MONUMENTS AND STRUCTURE
+order: 750
+basis: Industry
+applies_to:
+  components:
+    - POLE
+standard: "Clearance to verify with local code: plan at least 8'-0\" from grade to sign bottom over walkways
+  and 14'-6\" over drive lanes. Add 'Verify clearances and setbacks with Permitting' to the notes."
+why: Common code minimums; local codes vary, so Permitting confirms.

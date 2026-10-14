@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: PNL_ROUTED
+version: 1.0.0
+title: ROUTED SHAPE
+category: Panel Finishing
+order: 220
+applies_to:
+  components:
+    - SIGN_PANEL
+    - ACM_PANEL
+    - PVC_PANEL
+    - CORO_SIGN
+    - ACRYLIC_PANEL
+  when: CUSTOM SHAPE~=Yes OR ROUTING~=Yes
+notes: Panel CNC-routed to a custom outline.

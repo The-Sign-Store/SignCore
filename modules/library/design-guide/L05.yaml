@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: L05
+version: 1.0.0
+section: CHANNEL LETTERS AND HALO LETTERS
+order: 660
+basis: House
+applies_to:
+  components:
+    - CHANNEL_LETTERS_FL
+    - CLOUD_SIGN_FL
+  when: MOUNTING=Raceway
+standard: "Raceway: draw it on the proof at real size behind the letters, painted to match the wall (give the
+  SW number), shorter than the letter set, and centered under the copy."
+why: The raceway is visible on the building; customers must approve its color and length.

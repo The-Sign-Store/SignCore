@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: L03
+version: 1.0.0
+section: CHANNEL LETTERS AND HALO LETTERS
+order: 640
+basis: House
+applies_to:
+  components:
+    - CHANNEL_LETTERS_FL
+    - HALO_LETTERS
+standard: "Letter files: 1:1 face outlines (hairline, welded, closed) on the ROUTE / CUT page with counters as
+  separate inside paths, plus a full-size install pattern page with stud and wire hole locations (or raceway
+  position)."
+why: Fabrication cuts faces and backs from the same outlines; install mounts from the pattern.

@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: V09
+version: 1.0.0
+section: CUT VINYL (Graphtec 64 plotter)
+order: 360
+basis: SignOS
+applies_to:
+  when: COMPONENT=CUT_VINYL_DECAL OR GRAPHIC TYPE=Cut Vinyl|Contour Cut Vinyl|Translucent Cut Vinyl OR COVER
+    GRAPHICS~=Cut Vinyl OR FACE GRAPHICS~=Cut Vinyl OR FACE VINYL=Translucent Vinyl OR COMPONENT=ROUTED_FACE &
+    DIFFUSER=White Diffuser Vinyl
+standard: Keep each cut job inside the roll width in use, minus a 1" margin each side. Letters taller than the
+  roll are split with a 1/2" overlap at a straight edge, never through a counter.
+why: The plotter tracks best with margins, and seams on straight edges disappear when applied.

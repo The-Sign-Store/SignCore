@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: H01
+version: 1.0.0
+section: HDU (Precision Board)
+order: 830
+basis: SignOS
+applies_to:
+  components:
+    - HDU_SIGN
+standard: HDU is 1" or 1.5" Precision Board on 48x96 sheets. Raised copy stroke at least 3/8"; routed
+  background depth 1/4" to 1/2"; note texture ({ROUTING|per spec}) and that edges are painted.
+why: Thin raised strokes break off in foam.

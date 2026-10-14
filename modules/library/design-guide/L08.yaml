@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: L08
+version: 1.0.0
+section: CHANNEL LETTERS AND HALO LETTERS
+order: 920
+basis: House
+applies_to:
+  components:
+    - MONUMENT_LETTERS
+standard: "Monument letters: draw them standing on the monument cap in the elevation at real size (cap height
+  {LETTER HEIGHT|per spec}), {LIGHTING|Non-Lit}, {MATERIAL THICKNESS|}{LETTER DEPTH|}{LETTER DEPTH - UNLIT|}
+  thick / deep. Note the mounting ({MOUNTING|per spec}) and that a full-size pin / stud pattern goes with the
+  letters."
+why: Installers set pins from the pattern; the cap must be wide enough for the letter depth plus pin edge
+  distance.
+how_to: "Show a side view on the proof with the cap, letter thickness and pin embed. Pattern: letters 1:1 on
+  the CUT page with pin holes as 1/4 in. circles."

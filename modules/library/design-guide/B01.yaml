@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: B01
+version: 1.0.0
+section: BANNERS
+order: 580
+basis: SignOS
+applies_to:
+  components:
+    - BANNER
+standard: Add a 1" hem on every hemmed side and bleed the background through the hem. Keep text and logos 2"
+  inside the finished edge. The proof shows the FINISHED size.
+why: SignOS hem allowance is 1" (Allow_Hem_Inch); copy too close to the edge gets folded or punched.

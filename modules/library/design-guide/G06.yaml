@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: G06
+version: 1.0.0
+section: EVERY PROOF
+order: 60
+basis: SignOS
+standard: Use the customer's brand fonts or our approved library (Arimo, Liberation Sans, Montserrat, Open
+  Sans). Write the font names in the Description box so reorders match.
+why: Approved fonts are installed on every station and in SignOS (REF_Fonts), so files open the same everywhere.

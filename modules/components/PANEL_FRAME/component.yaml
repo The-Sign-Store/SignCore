@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: PANEL_FRAME
+name: Panel Frame
+version: 1.0.0
+order: 100
+description: Frame for post & panel and directional signs.
+show_as_tool: true
+repeatable: false
+fields:
+  - variable: FRAME POSITION
+    label: FRAME
+    column: 1
+    type: select
+    default: Interior (Between Posts)
+    options:
+      - Interior (Between Posts)
+      - Behind Panel
+      - Perimeter Cabinet Frame
+    required: true
+  - variable: FRAME MATERIAL
+    column: 1
+    type: select
+    default: 2" Aluminum Angle
+    options:
+      - 1.5" Aluminum Angle
+      - 2" Aluminum Angle
+      - 2" Aluminum Square Tube
+      - 2" Steel Angle
+      - 2" x 4" Wood
+    required: true
+    signos: "Master_Mat_Metals: Cost_Frame_AlumAngle_* / Cost_Frame_AlumTube_* / Cost_Frame_SteelAngle_*"
+  - variable: FRAME DEPTH
+    label: DEPTH
+    column: 1
+    type: select
+    default: 2"
+    options:
+      - 1.5"
+      - 2"
+      - 3"
+  - variable: ASSEMBLY
+    column: 2
+    type: select
+    default: Glued (Lord's Adhesive)
+    options:
+      - Glued (Lord's Adhesive)
+      - Welded
+      - Screwed
+      - Riveted
+    required: true
+    signos: "Master_Mat_Hardware: HRD_ADH_TUBE"
+  - variable: RETAINERS
+    column: 2
+    type: select
+    default: None
+    options:
+      - None
+      - 1.5" Flat
+      - 1.5" Formed
+  - variable: FRAME FINISH
+    label: FRAME COLOR
+    column: 2
+    type: finish
+    default: Black
+    options:
+      - Black
+      - Bronze
+      - White
+      - Mill / Unpainted
+    required: true

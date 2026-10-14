@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: POLE_COVER
+name: Pole Cover
+version: 1.0.0
+order: 20
+description: Aluminum pole cover / pylon skirt with optional address graphics.
+show_as_tool: true
+repeatable: false
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: number
+    default: "1"
+    required: true
+  - variable: COVER SIZE
+    label: DIMENSIONS
+    column: 1
+    type: dims
+    default: 24|18|102
+    options:
+      - W
+      - D
+      - H
+    required: true
+    notes: W x D x H
+  - variable: COVER MATERIAL
+    label: MATERIAL
+    column: 2
+    type: select
+    default: .040 Aluminum over 1.5" Angle Frame
+    options:
+      - .040 Aluminum over 1.5" Angle Frame
+      - .063 Aluminum over 1.5" Angle Frame
+      - Brick / Stone by Others
+      - Stucco by Others
+    required: true
+    signos: "Master_Mat_Metals: ALM_SHT_040 / ALM_SHT_063, Cost_Frame_AlumAngle_1.5_1/8"
+  - variable: COVER FINISH
+    label: FINISH
+    column: 2
+    type: finish
+    default: Match Cabinet
+    options:
+      - Match Cabinet
+      - Black
+      - Bronze
+      - White
+    required: true
+  - variable: COVER GRAPHICS
+    label: GRAPHICS
+    column: 3
+    type: select
+    default: None
+    options:
+      - None
+      - Cut Vinyl Address
+      - Cut Vinyl Logo / Text
+      - Digital Print Vinyl
+  - variable: ADDRESS TEXT
+    label: ADDRESS
+    column: 3
+    type: text
+    show_if: COVER GRAPHICS=Cut Vinyl Address
+    required: true
+  - variable: COVER VINYL
+    label: VINYL
+    column: 3
+    type: vinyl
+    default: 751RA
+    options:
+      - 751RA
+      - "951"
+      - "651"
+    show_if: COVER GRAPHICS~=Cut Vinyl
+    required: true
+    signos: Master_Mat_Vinyl_Cut

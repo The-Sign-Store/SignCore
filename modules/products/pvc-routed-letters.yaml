@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../schemas/product.schema.json
+schema: signcore.product/v1
+name: PVC - Routed Letters
+version: 1.0.0
+order: 120
+sections:
+  - component: PVC_ROUTED_LETTERS
+    title: PVC - Routed Letters
+    include: required
+    repeatable: true
+    page_group: 1
+legacy_fields:
+  - variable: QUANTITY
+    column: 1
+    default: "6"
+  - variable: HEIGHT
+    column: 1
+    default: "12"
+  - variable: THICKNESS
+    column: 1
+    default: 1/2"
+    options: 3mm, 6mm, 1/4", 1/2", 3/4", 1", 1.5", 2"
+  - variable: TEXT
+    column: 1
+    default: SAMPLE
+  - variable: MATERIAL COLOR
+    column: 2
+    default: White
+    options: White, Black
+  - variable: GRAPHIC TYPE
+    column: 2
+    default: Paint
+    options: Paint, None
+  - variable: GRAPHIC COLOR
+    column: 2
+    default: Select...
+  - variable: MOUNTING
+    column: 3
+    default: Stud Mount
+    options: None, Tape, Stud Mount - Flush, Stud Mount - Spacer, Custom...

@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: P01
+version: 1.0.0
+section: DIGITAL PRINT (HP Latex 300 roll / HP Latex R1000 flatbed)
+order: 390
+basis: Industry
+applies_to:
+  when: COMPONENT=DIGITAL_PRINT_VINYL|BANNER OR GRAPHIC TYPE~=Print OR COVER GRAPHICS~=Print OR FACE
+    GRAPHICS~=Print OR FACE VINYL~=Print
+standard: Raster images at 150 ppi at final print size (100 ppi is fine for banners and signs read from 15
+  ft+; 300 ppi for decals and anything read up close). Rebuild low-res logos as vectors.
+why: Low resolution is the top cause of reprints in large format.
+how_to: Select the image; the status bar shows its ppi at the current size. Bitmaps > Resample shows the
+  effective resolution.

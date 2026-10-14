@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: S06
+version: 1.0.0
+section: POLES, MONUMENTS AND STRUCTURE
+order: 790
+basis: Industry
+applies_to:
+  components:
+    - POLE_COVER
+  when: COVER GRAPHICS~=Address
+standard: 'Address numbers: contrasting color, sized for street reading (commonly 6" minimum on commercial
+  sites; verify local fire code).'
+why: Fire departments enforce address visibility.

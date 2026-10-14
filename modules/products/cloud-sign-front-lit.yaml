@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../schemas/product.schema.json
+schema: signcore.product/v1
+name: Cloud Sign - Front Lit
+version: 1.0.0
+order: 180
+sections:
+  - component: CLOUD_SIGN_FL
+    title: Cloud Sign - Front Lit
+    include: required
+    repeatable: true

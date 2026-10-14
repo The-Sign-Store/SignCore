@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: L07
+version: 1.0.0
+section: CHANNEL LETTERS AND HALO LETTERS
+order: 680
+basis: House
+applies_to:
+  when: COMPONENT=CHANNEL_LETTERS_FL|ILLUMINATION|ROUTED_FACE|CLOUD_SIGN_FL|CLOUD_SIGN_HALO OR LETTER
+    TYPE=Reverse Lit (Halo) OR LIGHTING=Front Lit|Halo Lit OR LIGHTING TYPE=Reverse Lit (Halo)
+standard: "Lit signs: note the power supply location (remote, in raceway, or in cabinet), the primary
+  electrical by others or by us, and where the ETL label goes."
+why: Electricians and inspectors look for this; ETL listing is on our proof template.

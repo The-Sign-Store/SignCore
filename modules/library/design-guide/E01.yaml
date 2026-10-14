@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: E01
+version: 1.0.0
+section: ELECTRONIC MESSAGE CENTERS
+order: 910
+basis: House
+applies_to:
+  components:
+    - EMC
+standard: 'EMC: draw the display as a grid of 9.45" x 9.45" modules ({DISPLAY SIZE|per spec}, {PIXEL PITCH|per
+  spec} pitch). In side views the 1.5" modules stand proud of the cabinet; show overall vs. cabinet depth,
+  with sample content labeled SAMPLE CONTENT. Attach the vendor drawing to the job folder.'
+why: The vendor drawing controls the cabinet opening and the power / data requirements.

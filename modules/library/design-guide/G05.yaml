@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: G05
+version: 1.0.0
+section: EVERY PROOF
+order: 50
+basis: House
+standard: "When the install location is known, show the sign in context: site photo mockup, scaled from a
+  known size (standard door = 80\" tall, 3 courses of modular brick = 8\"). Label it 'Placement approximate -
+  verify on site'."
+why: Customers judge size and color in context, and install sees where the sign goes before the truck leaves.
+how_to: Import the photo to layer MOCKUP. Draw a line over the door height, read its length, then scale the
+  photo with Object > Transform > Scale (Alt+F9) so the line equals 80". Lock the layer.

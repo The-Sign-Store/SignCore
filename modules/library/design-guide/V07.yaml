@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: V07
+version: 1.0.0
+section: CUT VINYL (Graphtec 64 plotter)
+order: 340
+basis: House
+applies_to:
+  when: COMPONENT=CUT_VINYL_DECAL OR GRAPHIC TYPE=Cut Vinyl|Contour Cut Vinyl|Translucent Cut Vinyl OR COVER
+    GRAPHICS~=Cut Vinyl OR FACE GRAPHICS~=Cut Vinyl OR FACE VINYL=Translucent Vinyl OR COMPONENT=ROUTED_FACE &
+    DIFFUSER=White Diffuser Vinyl
+standard: Every cut path is closed and node-reduced. No open paths, no duplicate stacked objects.
+why: Open paths do not cut out; stacked duplicates cut twice and shred the vinyl.
+how_to: Shape tool (F10) > Ctrl+A selects all nodes > Reduce Nodes. Object > Join Curves closes gaps. Edit >
+  Find and Replace finds duplicates.

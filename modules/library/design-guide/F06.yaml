@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: F06
+version: 1.0.0
+section: COREL FILE SETUP AND PRODUCTION HANDOFF
+order: 260
+basis: House
+standard: "Production line colors, hairline weight: RED = CNC cut outside (profile); BLUE = CNC cut inside
+  (holes, counters); GREEN = CNC pocket / v-carve / drill points; MAGENTA spot 'CutContour' = print-and-cut
+  path; BLACK = plotter (vinyl) cut. One purpose per color."
+why: CNC and cutter operators set up toolpaths by color instead of guessing.
+how_to: Outline Pen (F12) > Width = Hairline. Set the outline color by right-clicking a palette swatch.

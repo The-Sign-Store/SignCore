@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: C04
+version: 1.0.0
+section: PROOF COLOR STANDARDS (how materials look on proofs)
+order: 140
+basis: House
+standard: "Clear acrylic / clear polycarbonate: #E3F2F9 with a 1 pt #7FB3CC edge. Clear vinyl (Oracal 3640):
+  show only the printed art, with a dashed hairline at the film edge."
