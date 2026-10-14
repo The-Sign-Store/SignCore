@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: F07
+version: 1.0.0
+section: COREL FILE SETUP AND PRODUCTION HANDOFF
+order: 270
+basis: House
+standard: "Before export, preflight: no MISSING tags, all text on production pages converted to curves, no
+  hidden objects off the page, images linked or embedded at size."
+how_to: File > Document Properties shows fonts and images. Edit > Select All > Text finds stray text (then Ctrl+Q).

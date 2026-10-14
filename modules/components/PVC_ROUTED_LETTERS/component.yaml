@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: PVC_ROUTED_LETTERS
+name: PVC - Routed Letters
+version: 1.0.0
+order: 180
+description: Routed PVC dimensional letters.
+show_as_tool: false
+repeatable: true
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: autoqty
+    default: "6"
+    options:
+      - LETTER HEIGHT
+    required: true
+    notes: Counts letters in TEXT
+  - variable: LETTER HEIGHT
+    column: 1
+    type: number
+    default: "12"
+    required: true
+  - variable: THICKNESS
+    column: 1
+    type: select
+    default: 1/2"
+    options:
+      - 3mm
+      - 6mm
+      - 1/4"
+      - 1/2"
+      - 3/4"
+      - 1"
+      - 1.5"
+      - 2"
+    required: true
+  - variable: TEXT
+    column: 1
+    type: text
+    default: SAMPLE
+    required: true
+  - variable: MATERIAL COLOR
+    column: 2
+    type: color
+    default: White
+    options:
+      - White
+      - Black
+    required: true
+  - variable: FINISH
+    column: 2
+    type: select
+    default: Paint
+    options:
+      - Paint
+      - None
+    required: true
+    hide_values:
+      - None
+  - variable: PAINT COLOR
+    label: COLOR
+    column: 2
+    type: paint
+    show_if: FINISH=Paint
+    required: true
+  - variable: MOUNTING
+    column: 3
+    type: select
+    default: Stud Mount - Flush
+    options:
+      - None
+      - Tape
+      - Stud Mount - Flush
+      - Stud Mount - Spacer
+      - Custom
+    hide_values:
+      - None
+  - variable: MOUNTING DETAIL
+    label: MOUNT DETAIL
+    column: 3
+    type: text
+    show_if: MOUNTING~=Spacer|Custom
+    required: true

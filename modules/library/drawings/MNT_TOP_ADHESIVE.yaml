@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: MNT_TOP_ADHESIVE
+version: 1.0.0
+title: TOP MOUNT - ADHESIVE
+category: Mounting
+order: 280
+applies_to:
+  components:
+    - MONUMENT_LETTERS
+  when: MOUNTING=Top Mount - Adhesive
+notes: Letters stand on the monument cap, bonded with structural adhesive / silicone along the bottom.

@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: C01
+version: 1.0.0
+section: PROOF COLOR STANDARDS (how materials look on proofs)
+order: 110
+basis: House
+standard: "Clear glass / storefront windows: solid baby blue #CFE6F3 (R207 G230 B243), full fill, no
+  transparency. Add two thin white diagonal glare lines at 60% opacity."
+why: Gives every proof the same look for glass, so vinyl applied to glass is easy to read.
+how_to: "Edit Fill > Hex CFE6F3. Glare: 2 pt white lines; Transparency tool > Uniform 40."

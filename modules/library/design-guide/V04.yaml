@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: V04
+version: 1.0.0
+section: CUT VINYL (Graphtec 64 plotter)
+order: 310
+basis: House
+applies_to:
+  when: COMPONENT=CUT_VINYL_DECAL OR GRAPHIC TYPE=Cut Vinyl|Contour Cut Vinyl|Translucent Cut Vinyl OR COVER
+    GRAPHICS~=Cut Vinyl OR FACE GRAPHICS~=Cut Vinyl OR FACE VINYL=Translucent Vinyl OR COMPONENT=ROUTED_FACE &
+    DIFFUSER=White Diffuser Vinyl
+standard: One layer per vinyl color, named with the exact callout (e.g. 751-031 RED). Each color layer gets
+  the same 2 registration marks (1/4" crosses) outside the art.
+why: Each color is cut and weeded on its own; the marks line the colors up at application.
+how_to: Objects docker > New Layer > rename. Draw one + mark, copy it to every color layer with Edit > Paste
+  in Place.

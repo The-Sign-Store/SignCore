@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: V02
+version: 1.0.0
+section: CUT VINYL (Graphtec 64 plotter)
+order: 290
+basis: House
+applies_to:
+  when: COMPONENT=CUT_VINYL_DECAL OR GRAPHIC TYPE=Cut Vinyl|Contour Cut Vinyl|Translucent Cut Vinyl OR COVER
+    GRAPHICS~=Cut Vinyl OR FACE GRAPHICS~=Cut Vinyl OR FACE VINYL=Translucent Vinyl OR COMPONENT=ROUTED_FACE &
+    DIFFUSER=White Diffuser Vinyl
+standard: Weld overlapping letters and shapes (scripts, outlined text, tight kerning) so each piece is one
+  clean closed path. No lines crossing inside a letter.
+why: Overlaps make the blade cut through the letter and the shop weeds it out by mistake.
+how_to: "Ctrl+Q, Ungroup All, select the pieces, Object > Shaping > Weld. Check in View > Wireframe: any line
+  inside a letter will be cut."

@@ -1,0 +1,110 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: CABINET
+name: Cabinet
+version: 1.0.0
+order: 30
+description: "Lighted sign cabinet: size, construction, finish, retainers, mounting."
+show_as_tool: true
+repeatable: false
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: number
+    default: "1"
+    required: true
+  - variable: CABINET SIZE
+    label: DIMENSIONS
+    column: 1
+    type: dims
+    default: 96|36|8
+    options:
+      - W
+      - H
+      - D
+    required: true
+    notes: Overall cabinet O.D.
+  - variable: SIDEDNESS
+    column: 1
+    type: select
+    default: Single Sided
+    options:
+      - Single Sided
+      - Double Sided
+    required: true
+  - variable: CONSTRUCTION
+    column: 2
+    type: select
+    default: Extrusion
+    options:
+      - Extrusion
+      - Stick Built (Angle Frame)
+      - Fabricated Aluminum
+    required: true
+  - variable: SKIN
+    column: 2
+    type: select
+    default: .040 Aluminum
+    options:
+      - .040 Aluminum
+      - .063 Aluminum
+    show_if: CONSTRUCTION!=Extrusion
+    required: true
+    signos: "Master_Mat_Metals: ALM_SHT_040 / ALM_SHT_063"
+  - variable: CABINET FINISH
+    label: CABINET COLOR
+    column: 2
+    type: finish
+    default: Black
+    options:
+      - Black
+      - Bronze
+      - White
+    required: true
+  - variable: RETAINER SIZE
+    label: RETAINER
+    column: 3
+    type: select
+    default: 1.5"
+    options:
+      - 1.5"
+      - 2"
+    required: true
+    signos: "Fold-out: Retainer Size"
+    notes: Flange = retainer + 1"
+  - variable: RETAINER TYPE
+    column: 3
+    type: select
+    default: Standard (Flat)
+    options:
+      - Standard (Flat)
+      - Formed
+    required: true
+  - variable: RETAINER FINISH
+    label: RETAINER COLOR
+    column: 3
+    type: finish
+    default: Match Cabinet
+    options:
+      - Match Cabinet
+      - Black
+      - Bronze
+      - White
+    required: true
+  - variable: MOUNTING
+    column: 4
+    type: select
+    default: Wall Mount
+    options:
+      - Wall Mount
+      - Pole Mount
+      - Monument Base
+      - Pole Cover / Pylon
+    required: true
+  - variable: WALL MOUNT DETAIL
+    label: MOUNT DETAIL
+    column: 4
+    type: text
+    default: Lag to wall, pattern by installer
+    show_if: MOUNTING=Wall Mount

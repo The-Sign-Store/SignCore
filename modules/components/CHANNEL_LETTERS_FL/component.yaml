@@ -1,0 +1,195 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: CHANNEL_LETTERS_FL
+name: Channel Letters - Front Lit
+version: 1.0.0
+order: 220
+description: Front lit channel letters, one line of copy per block.
+show_as_tool: false
+repeatable: true
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: autoqty
+    default: "1"
+    options:
+      - LETTER HEIGHT
+    required: true
+    notes: Counts letters in TEXT
+  - variable: LETTER HEIGHT
+    column: 1
+    type: number
+    default: "18"
+    required: true
+  - variable: TEXT
+    column: 1
+    type: text
+    required: true
+  - variable: FACE MATERIAL
+    label: FACE
+    column: 2
+    type: select
+    default: 3/16" Acrylic
+    options:
+      - 3/16" Acrylic
+      - 3/16" Polycarbonate
+    required: true
+  - variable: FACE COLOR
+    column: 2
+    type: color
+    default: White
+    options:
+      - Clear
+      - White
+      - Red
+    required: true
+  - variable: FACE VINYL
+    label: VINYL
+    column: 2
+    type: select
+    default: None
+    options:
+      - None
+      - Translucent Vinyl
+      - Translucent Digital Print
+    required: true
+    hide_values:
+      - None
+  - variable: VINYL COLOR
+    column: 2
+    type: vinyl
+    default: "8500"
+    options:
+      - "8500"
+      - "8800"
+    show_if: FACE VINYL=Translucent Vinyl
+    required: true
+    signos: "Master_Mat_Vinyl_Cut: VIN_ROL_TRN_8500 / 8800"
+  - variable: RETURN
+    column: 3
+    type: select
+    default: 5" .040
+    options:
+      - 5" .040
+      - 3" .040
+    required: true
+    signos: "Master_Mat_Fab_Channel: CLD-COM-COIL-5 / -3"
+  - variable: RETURN COLOR
+    column: 3
+    type: db
+    default: Gloss Black
+    options:
+      - COIL
+    required: true
+    signos: Coil_Colors
+  - variable: TRIM CAP
+    column: 3
+    type: select
+    default: 1"
+    options:
+      - 1"
+      - 2"
+    required: true
+    signos: "Master_Mat_Fab_Channel: CLD-COM-TRIM-1"
+  - variable: TRIM CAP COLOR
+    column: 3
+    type: db
+    default: 1 Black"
+    options:
+      - TRIMCAP
+    required: true
+    signos: TrimCap_Colors
+  - variable: LED COLOR
+    column: 4
+    type: db
+    default: White (6500K)
+    options:
+      - LED
+    required: true
+    signos: "Master_Mat_Fab_Channel: CLD-SUP-LED-WHT"
+  - variable: MOUNTING
+    column: 4
+    type: select
+    default: Flush Mount
+    options:
+      - Flush Mount
+      - Raceway
+      - Panel
+    required: true
+  - variable: MOUNTING PAINT
+    label: MOUNTING COLOR
+    column: 4
+    type: paint
+    show_if: MOUNTING=Raceway|Panel
+    required: true
+  - variable: RACEWAY SIZE
+    column: 4
+    type: dims
+    options:
+      - L
+      - H
+      - D
+    show_if: MOUNTING=Raceway
+    required: true
+    notes: Length x height x depth, inches
+
+# ---------------------------------------------------------------------------------------------
+# DRAFT for the Step 0 session: routing and materials are new module parts with no data yet.
+# The departments, steps and SKUs below are a first proposal to review, not shop-approved values.
+# ---------------------------------------------------------------------------------------------
+routing:
+  - department: cnc-routing
+    work: Route {FACE MATERIAL} faces and aluminum backs from the letter files
+  - department: metal-fabrication
+    work: Bend {RETURN} returns ({RETURN COLOR}), assemble letters, apply {TRIM CAP} trim cap ({TRIM CAP COLOR})
+  - department: vinyl
+    when: FACE VINYL=Translucent Vinyl
+    work: Cut and apply Oracal {VINYL COLOR} translucent vinyl to the faces
+  - department: digital-print
+    when: FACE VINYL=Translucent Digital Print
+    work: Print and apply translucent face graphics
+  - department: electrical-led
+    work: Install {LED COLOR} LED modules, power supply and wiring; UL / ETL label
+  - department: metal-fabrication
+    when: MOUNTING=Raceway
+    work: Build raceway {RACEWAY SIZE}
+  - department: paint-finishing
+    when: MOUNTING=Raceway|Panel
+    work: Paint {MOUNTING} to {MOUNTING PAINT}
+  - department: installation
+    work: Install letters ({MOUNTING})
+
+materials:
+  - item: Return coil, 5"
+    signos: CLD-COM-COIL-5
+    when: RETURN=5" .040
+    qty: TBD
+    unit: LF
+    department: metal-fabrication
+    notes: Letter perimeter per letter; needs letter outlines (from SignStudio) to calculate
+  - item: Return coil, 3"
+    signos: CLD-COM-COIL-3
+    when: RETURN=3" .040
+    qty: TBD
+    unit: LF
+    department: metal-fabrication
+  - item: Trim cap, 1"
+    signos: CLD-COM-TRIM-1
+    when: TRIM CAP=1"
+    qty: TBD
+    unit: LF
+    department: metal-fabrication
+    notes: Same perimeter as the returns
+  - item: LED modules
+    signos: CLD-SUP-LED-WHT
+    qty: TBD
+    unit: Unit
+    department: electrical-led
+    notes: Count from letter area and stroke; SKU shown is white, colored LEDs need their own SKUs
+  - item: Translucent face vinyl
+    signos: VIN_ROL_TRN_8500
+    when: FACE VINYL=Translucent Vinyl
+    qty: TBD
+    unit: SqFt
+    department: vinyl

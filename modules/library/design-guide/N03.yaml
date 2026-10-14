@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: N03
+version: 1.0.0
+section: PAINT AND FINISHES (paint booth / HVLP)
+order: 820
+basis: House
+applies_to:
+  when: GRAPHIC TYPE=Paint
+standard: "Painted graphics need a cut mask: put the mask art on a CUT page, following the cut vinyl rules
+  (curves, hairline, welded, weed box)."
+why: The mask is cut on the plotter like vinyl.

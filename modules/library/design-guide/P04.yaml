@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: P04
+version: 1.0.0
+section: DIGITAL PRINT (HP Latex 300 roll / HP Latex R1000 flatbed)
+order: 420
+basis: SignOS
+applies_to:
+  when: COMPONENT=DIGITAL_PRINT_VINYL|BANNER OR GRAPHIC TYPE~=Print OR COVER GRAPHICS~=Print OR FACE
+    GRAPHICS~=Print OR FACE VINYL~=Print
+standard: Laminate printed vinyl per the spec ({OVERLAMINATE|see spec table}). Cast print (3M IJ180) gets cast
+  laminate (3M 8518 / 8519 / 8520); calendered gets Arlon 3210 or Oraguard 210. Note gloss / luster / matte on
+  the proof.
+why: Laminate pairs are matched in SignOS so they shrink together.

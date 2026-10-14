@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: K03
+version: 1.0.0
+section: CABINETS AND FACES
+order: 710
+basis: House
+applies_to:
+  components:
+    - POLY_FACE
+    - ROUTED_FACE
+    - CABINET
+standard: "Lit faces: light copy on a dark background needs a blockout or day/night print (it costs more press
+  time); dark copy on a light face is the default."
+why: Dark backgrounds glow unevenly unless they are blocked out.

@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: K04
+version: 1.0.0
+section: CABINETS AND FACES
+order: 720
+basis: Industry
+applies_to:
+  when: COPY TYPE=Push-Thru Acrylic OR MOUNTING=Push-Thru OR ROUTING=Push-Thru
+standard: 'Push-thru: copy is 1/2" or 3/4" acrylic, minimum stroke 3/8", inside corners 1/8" radius. Design
+  gives the copy outline; fabrication offsets the face opening.'
+why: Thin push-thru strokes snap and cannot be routed cleanly.

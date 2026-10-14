@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: R03
+version: 1.0.0
+section: RIGID PANELS AND CNC (MultiCAM 5x10)
+order: 540
+basis: Industry
+applies_to:
+  when: CUSTOM SHAPE~=Yes OR ROUTING~=Yes OR ROUTING=Push-Thru OR BACKER TYPE=Custom Shape (Routed) OR
+    COMPONENT=PVC_ROUTED_LETTERS|HDU_SIGN|ROUTED_FACE
+standard: 'Inside corners carry the bit radius: standard 1/4" bit = 1/8" minimum inside radius. Keep 1/4"
+  minimum between routed parts and letters; smallest routed stroke 3/16" (1/4" for PVC / acrylic letters).'
+why: A router cannot cut a sharp inside corner; designing for it avoids hand finishing.

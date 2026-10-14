@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: K06
+version: 1.0.0
+section: CABINETS AND FACES
+order: 725
+basis: House
+applies_to:
+  when: COPY TYPE=Push-Thru Acrylic OR MOUNTING=Push-Thru OR ROUTING=Push-Thru
+standard: 'Push-thru edge clearance: all push-thru copy and graphics stay a minimum of 2.25" from every edge
+  of the face. Measure from the outside edge of the face to the nearest point of the push-thru outline.'
+why: Push-thru copy that crowds the edge runs into the face frame / retainer and leaves too little face around
+  each opening for a clean route and a solid face.
+how_to: Select the face outline > Contour (Ctrl+F9) > Inside, Offset 2.25", Steps 1 > Apply. Break the contour
+  apart, move it to the NOTES layer (non-printing) and name it PUSH-THRU SAFE AREA. Every push-thru outline
+  must sit fully inside it.

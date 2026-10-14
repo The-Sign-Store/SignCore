@@ -1,0 +1,42 @@
+name: Checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: signcore
+          POSTGRES_PASSWORD: signcore
+          POSTGRES_DB: signcore
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U signcore" --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://signcore:signcore@localhost:5432/signcore
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Module files are valid
+        run: npm run modules:check
+      - name: Database schema applies cleanly
+        run: |
+          psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -q -f db/schema.sql
+          psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -q -f db/migrations/002_modules.sql
+      - name: Publish and export are exact opposites
+        run: npm run modules:roundtrip
+      - name: Build
+        run: npm run build
+      - name: Type check (app and scripts)
+        run: npm run typecheck

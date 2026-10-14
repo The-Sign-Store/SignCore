@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: L02
+version: 1.0.0
+section: CHANNEL LETTERS AND HALO LETTERS
+order: 630
+basis: SignOS
+applies_to:
+  components:
+    - CHANNEL_LETTERS_FL
+    - HALO_LETTERS
+    - CLOUD_SIGN_FL
+    - CLOUD_SIGN_HALO
+standard: 'Bender-friendly shapes: no razor-sharp inside points (give them at least a 1/8" radius). Script
+  copy is either welded into one piece per word or split so no strokes touch.'
+why: The channel letter bender (SignOS MACH_CHL_BEND) forms returns around the outline; sharp inside points
+  crack or need hand work.
+how_to: Ctrl+Q, Weld; Shape tool > select a sharp node > Property bar Fillet / Corners docker 0.125".

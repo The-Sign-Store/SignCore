@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: W03
+version: 1.0.0
+section: WHITE INK AND CLEAR MATERIALS (HP R1000)
+order: 500
+basis: SignOS
+applies_to:
+  when: PRINT LAYERS~=White|Layer OR SIDEDNESS (CLEAR)=Second Surface Print OR GRAPHIC TYPE=2nd Surface Direct
+    Print OR MATERIAL COLOR=Clear & GRAPHIC TYPE~=Print OR MEDIA~=Clear
+standard: "Second surface (printed on the back of clear acrylic / poly, read from the front): mirror the art.
+  Print order Color then White. Lit day/night faces use 3-Layer (Color-White-Color); blockout uses 5-Layer.
+  Match the spec: {PRINT LAYERS|see spec table}."
+why: Layer order and mirroring decide how the face reads by day and by night.
+how_to: Property bar > Mirror Horizontally on the PRINT page. Name the page PRINT - MIRRORED 2ND SURFACE.

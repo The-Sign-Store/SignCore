@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: MNT_TOP_PINNED
+version: 1.0.0
+title: TOP MOUNT - PINNED
+category: Mounting
+order: 270
+applies_to:
+  components:
+    - MONUMENT_LETTERS
+  when: MOUNTING=Top Mount - Pinned
+notes: Letters stand on the monument cap; threaded pins in the letter bottoms set into drilled, epoxied holes.

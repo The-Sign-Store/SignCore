@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: K02
+version: 1.0.0
+section: CABINETS AND FACES
+order: 700
+basis: SignOS
+applies_to:
+  components:
+    - POLY_FACE
+    - CABINET
+standard: 'Face stock: 3/16" polycarbonate sheets are 52" x 120". Faces larger than that need a split bar, a
+  pan face or a flex face; show the split on the proof.'
+why: From SignOS INV_Sheets (SHT_POL_316_52X120).

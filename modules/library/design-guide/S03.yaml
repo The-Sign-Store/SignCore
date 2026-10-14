@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: S03
+version: 1.0.0
+section: POLES, MONUMENTS AND STRUCTURE
+order: 760
+basis: House
+applies_to:
+  components:
+    - POLE
+  when: FOOTER=Engineered Concrete Footer OR EMBED DEPTH=Per Engineering
+standard: "Engineered footer: route the proof to Permitting before final approval and mark the proof 'Footer
+  per engineering'. Do not show a footer size until the engineering is back."
+why: The footer comes from the engineer, not from design.

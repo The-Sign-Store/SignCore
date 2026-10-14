@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: K05
+version: 1.0.0
+section: CABINETS AND FACES
+order: 730
+basis: House
+applies_to:
+  components:
+    - CABINET
+standard: "Cabinets: show depth on the proof, the side / return color, and the mounting ({MOUNTING|per spec}).
+  Double sided cabinets: proof both faces."
+why: Depth and side color are part of what the customer sees from the street.

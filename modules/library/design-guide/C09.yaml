@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: C09
+version: 1.0.0
+section: PROOF COLOR STANDARDS (how materials look on proofs)
+order: 190
+basis: House
+standard: "Surroundings with no site photo: wall #EDEDED, brick #A0524A, stucco #E8E1D3, concrete / grade
+  #D3D3D3, soil #EFE6D6, sky #E6F2FA, grass #7BAA5A. Keep surroundings lighter and duller than the sign."
+why: Same palette as the detail drawings, so every proof reads the same way.

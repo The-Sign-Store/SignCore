@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: A06
+version: 1.0.0
+section: ADA SIGNS
+order: 900
+basis: SignOS
+applies_to:
+  components:
+    - ADA_SIGN
+standard: "Size signs to fit our equipment: engraver beds 18x12 and 24x18, router 24x48, Rowmark sheets 24x48.
+  Keep like sign types the same size across a building."
+why: From SignOS Master_Workstations and Master_Mat_ADA.

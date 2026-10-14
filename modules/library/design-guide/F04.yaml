@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: F04
+version: 1.0.0
+section: COREL FILE SETUP AND PRODUCTION HANDOFF
+order: 240
+basis: SignOS
+standard: "Handoff in the job folder \\PRODUCTION: approved proof PDF + one file per machine: _PRINT.pdf (HP
+  Latex), _CUT (Graphtec), _ROUTE.dxf (MultiCAM). Same base name as the proof."
+why: Matches our equipment list in SignOS (Master_Machines_Fleet) so every file has an owner.

@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: V01
+version: 1.0.0
+section: CUT VINYL (Graphtec 64 plotter)
+order: 280
+basis: House
+applies_to:
+  when: COMPONENT=CUT_VINYL_DECAL OR GRAPHIC TYPE=Cut Vinyl|Contour Cut Vinyl|Translucent Cut Vinyl OR COVER
+    GRAPHICS~=Cut Vinyl OR FACE GRAPHICS~=Cut Vinyl OR FACE VINYL=Translucent Vinyl OR COMPONENT=ROUTED_FACE &
+    DIFFUSER=White Diffuser Vinyl
+standard: Convert ALL text to curves and give every cut shape a hairline BLACK outline. The fill may stay for
+  the visual; the plotter follows the outline.
+why: Live text changes font on another computer, and the cutter only reads outlines.
+how_to: "Edit > Select All > Text, then Ctrl+Q (Object > Convert to Curves). Select all cut art > F12 Outline
+  Pen: Width Hairline, Color Black (or right-click the black swatch)."

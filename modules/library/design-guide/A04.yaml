@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: A04
+version: 1.0.0
+section: ADA SIGNS
+order: 880
+basis: Industry
+applies_to:
+  components:
+    - ADA_SIGN
+standard: Non-glare (matte) surfaces with strong light-on-dark or dark-on-light contrast. The Generator flags
+  LOW CONTRAST; never use brushed or metallic as the background.
+why: Glare and low contrast fail inspection.

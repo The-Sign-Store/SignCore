@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: G01
+version: 1.0.0
+section: EVERY PROOF
+order: 10
+basis: House
+standard: Start every proof from the Proof Generator export. Artwork goes inside the art board only; never
+  cover the spec table, detail drawings, sidebar or approval footer.
+why: The spec table is the work order production builds from. If it is hidden or edited by hand, the proof and
+  the work order stop matching.
+how_to: File > Import (Ctrl+I) the page SVG at 100%. Put it on layer PROOF TEMPLATE and lock it. Change spec
+  text in the Generator and re-export; do not retype it in CorelDRAW.

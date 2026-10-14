@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: C08
+version: 1.0.0
+section: PROOF COLOR STANDARDS (how materials look on proofs)
+order: 180
+basis: House
+applies_to:
+  when: COMPONENT=CHANNEL_LETTERS_FL|ILLUMINATION|ROUTED_FACE|CLOUD_SIGN_FL|CLOUD_SIGN_HALO OR LETTER
+    TYPE=Reverse Lit (Halo) OR LIGHTING=Front Lit|Halo Lit OR LIGHTING TYPE=Reverse Lit (Halo)
+standard: "Lit signs: the daytime view is the default proof. Add a night view: background #1C2230, lit faces
+  at full color with a soft outer glow; halo lit = #FFF3B0 glow on the wall behind the letters."
+why: Shows the customer what they are paying for after dark and catches dark faces that will not glow.
+how_to: Duplicate the art to a second page. Effects > Drop Shadow tool, preset Glow; color = face color,
+  opacity 60, feather 20.

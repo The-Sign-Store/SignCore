@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: K01
+version: 1.0.0
+section: CABINETS AND FACES
+order: 690
+basis: House
+applies_to:
+  components:
+    - CABINET
+    - PANEL_FRAME
+standard: 'Copy safe area: the retainer covers {RETAINER SIZE|1.5 in} of the face on every side. Keep copy at
+  least the retainer size + 1" inside the cabinet edge, and show the visible face area on the proof.'
+why: Copy designed to the cabinet edge disappears under the retainer.

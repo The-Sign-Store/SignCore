@@ -1,0 +1,212 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: CLOUD_SIGN_HALO
+name: Cloud Sign - Halo Lit
+version: 1.0.0
+order: 250
+description: "Halo lit cloud sign: quantity and size, with the halo letter face, return, back, standoff and
+  illumination options."
+show_as_tool: false
+repeatable: true
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: number
+    default: "1"
+    required: true
+    notes: Number of cloud signs
+  - variable: CLOUD SIZE
+    column: 1
+    type: dims
+    options:
+      - W
+      - H
+    required: true
+    notes: Overall cloud sign size, inches
+  - variable: LIGHTING TYPE
+    label: TYPE
+    column: 1
+    type: select
+    default: Reverse Lit (Halo)
+    options:
+      - Reverse Lit (Halo)
+      - Reverse Non-Lit
+    required: true
+  - variable: FACE
+    column: 2
+    type: select
+    default: .080 Aluminum
+    options:
+      - .080 Aluminum
+      - .063 Aluminum
+      - .125 Aluminum
+      - Brushed Aluminum
+      - Stainless Steel
+    required: true
+    signos: "Master_Mat_Metals: ALM_SHT_080 / ALM_SHT_063"
+    notes: .063 OK under 12"
+  - variable: FACE PAINT
+    label: FACE COLOR
+    column: 2
+    type: paint
+    show_if: FACE!=Brushed Aluminum&FACE!=Stainless Steel
+    required: true
+  - variable: FACE GRAPHICS
+    column: 2
+    type: select
+    default: None
+    options:
+      - None
+      - Cut Vinyl Accent
+      - Digital Print
+  - variable: RETURN DEPTH
+    label: RETURN
+    column: 3
+    type: select
+    default: 3"
+    options:
+      - 2"
+      - 3"
+      - 5"
+    required: true
+    signos: "Master_Mat_Fab_Channel: CLD-COM-COIL-3 / -5"
+  - variable: RETURN GAUGE
+    label: GAUGE
+    column: 3
+    type: select
+    default: ".063"
+    options:
+      - ".063"
+      - ".080"
+      - ".040"
+    required: true
+    notes: .063 standard for halo
+  - variable: RETURN FINISH
+    label: RETURN COLOR
+    column: 3
+    type: finish
+    default: Match Face
+    options:
+      - Match Face
+      - Black
+      - Bronze
+      - White
+    required: true
+  - variable: BACKS
+    column: 4
+    type: select
+    default: 3/16" Clear Polycarbonate
+    options:
+      - 3/16" Clear Polycarbonate
+      - 1/4" Clear Acrylic
+      - Aluminum (Non-Lit)
+    required: true
+  - variable: DIFFUSER VINYL
+    label: DIFFUSER
+    column: 4
+    type: select
+    default: No
+    options:
+      - No
+      - Yes
+    show_if: LIGHTING TYPE=Reverse Lit (Halo)
+    notes: Smoother halo
+  - variable: STANDOFFS
+    column: 4
+    type: select
+    default: 1.5" Aluminum
+    options:
+      - 1" Aluminum
+      - 1.5" Aluminum
+      - 2" Aluminum
+    required: true
+    notes: Pattern needed
+  - variable: WALL SURFACE
+    label: WALL
+    column: 4
+    type: text
+    required: true
+    notes: e.g. Painted stucco, light beige
+  - variable: LIGHT SOURCE
+    label: ILLUMINATION
+    column: 5
+    type: select
+    default: LED Modules
+    options:
+      - LED Modules
+      - LED Strip
+      - Non-Illuminated
+    required: true
+    signos: "Master_Mat_Fab_Channel: CLD-SUP-LED-WHT"
+  - variable: LED COLOR
+    column: 5
+    type: db
+    default: White (6500K)
+    options:
+      - LED
+    show_if: LIGHT SOURCE!=Non-Illuminated
+    required: true
+    signos: LED_Colors tab
+  - variable: POWER SUPPLY
+    column: 5
+    type: select
+    default: Per Production
+    options:
+      - Per Production
+      - 60W
+      - 120W
+    show_if: LIGHT SOURCE!=Non-Illuminated
+    signos: "Master_Mat_Fab_Channel: CLD-SUP-PSU-60 / CLD-SUP-PSU-120"
+  - variable: PHOTO CELL
+    column: 5
+    type: select
+    default: Yes
+    options:
+      - Yes
+      - No
+    show_if: LIGHT SOURCE!=Non-Illuminated
+    required: true
+  - variable: TIMER
+    column: 5
+    type: select
+    default: No
+    options:
+      - No
+      - Yes
+    show_if: LIGHT SOURCE!=Non-Illuminated
+  - variable: DISCONNECT SWITCH
+    label: DISCONNECT
+    column: 5
+    type: select
+    default: Yes
+    options:
+      - Yes
+      - No
+    show_if: LIGHT SOURCE!=Non-Illuminated
+    required: true
+    signos: NEC 600
+    notes: Required on lit signs
+  - variable: ETL LABEL
+    label: ETL / UL
+    column: 5
+    type: select
+    default: Yes
+    options:
+      - Yes
+      - No
+    show_if: LIGHT SOURCE!=Non-Illuminated
+    required: true
+    signos: UL 48
+    notes: Required on lit signs
+  - variable: PRIMARY ELECTRICAL
+    label: ELECTRICAL
+    column: 5
+    type: select
+    default: 120V by Customer's Electrician
+    options:
+      - 120V by Customer's Electrician
+      - 277V by Customer's Electrician
+      - Existing Circuit at Sign
+    show_if: LIGHT SOURCE!=Non-Illuminated
+    required: true

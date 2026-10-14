@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: C03
+version: 1.0.0
+section: PROOF COLOR STANDARDS (how materials look on proofs)
+order: 130
+basis: SignOS
+standard: "Frosted / etched glass vinyl (Oracal 8510, GF 790): #EEF3F6 over the glass blue with a hairline
+  #B0BEC5 edge. Label it FROSTED VINYL."
+why: Frosted film is nearly white on screen; the edge line keeps the shape readable.

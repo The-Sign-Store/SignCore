@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: FTG_DIRECT
+version: 1.0.0
+title: DIRECT BURIAL
+category: Footers and Poles
+order: 190
+applies_to:
+  components:
+    - POLE
+  when: FOOTER=Direct Burial
+notes: Pole set directly in compacted gravel / soil (no concrete).

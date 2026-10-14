@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: P05
+version: 1.0.0
+section: DIGITAL PRINT (HP Latex 300 roll / HP Latex R1000 flatbed)
+order: 430
+basis: Industry
+applies_to:
+  when: GRAPHIC TYPE=Digital Print Contour Cut Vinyl OR CONTOUR CUT=Yes
+standard: 'Print-and-cut: the contour is a spot color named CutContour (100% magenta), hairline, set to
+  overprint, 1/16" outside the art (or a designed white border). Leave 1" around the job for the cutter
+  registration marks.'
+why: The RIP and the Graphtec read the CutContour line as the cut path, not as ink.
+how_to: 'Contour tool > Outside 0.0625", 1 step > Ctrl+K. Window > Color Palettes > Palette Editor: new color
+  CutContour C0 M100 Y0 K0, Treat as Spot. Hairline outline, no fill, right-click > Overprint Outline.'

@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=../../schemas/product.schema.json
+schema: signcore.product/v1
+name: Acrylic
+version: 1.0.0
+order: 110
+sections:
+  - component: ACRYLIC_PANEL
+    title: Acrylic
+    include: required
+    repeatable: true
+    page_group: 1
+legacy_fields:
+  - variable: QUANTITY
+    column: 1
+    default: "1"
+  - variable: WIDTH
+    column: 1
+    default: "48"
+  - variable: HEIGHT
+    column: 1
+    default: "96"
+  - variable: THICKNESS
+    column: 1
+    default: 3/16"
+    options: 3/16", 1/4", 1/2", 1", 1.5"
+  - variable: SIDEDNESS
+    column: 2
+    default: Single Sided
+    options: Single Sided, Double Sided, Second Surface Print
+  - variable: MATERIAL COLOR
+    column: 2
+    default: Clear
+    options: Clear, White, Black, Red
+  - variable: GRAPHIC TYPE
+    column: 2
+    default: Direct Print
+    options: None, Direct Print, Digital Print Vinyl, Digital Print Contour Cut Vinyl, Contour Cut Vinyl, Paint
+  - variable: OVERLAMINATE
+    column: 3
+    default: None
+    options: None, Arlon 3210 Premium Laminate, 3M 8518 Wrap Gloss Laminate, 3M 8519 Wrap Luster Laminate, 3M 8520
+      Wrap Matte Laminate
+  - variable: GRAPHIC COLOR
+    column: 3
+    default: Full Color Digital
+    options: Full Color Digital
+  - variable: ROUTING
+    column: 3
+    default: No
+    options: No, Yes - Simple, Yes - Complex, Push-Thru
+  - variable: MOUNTING
+    column: 3
+    default: None
+    options: None, Tape, Stud Mount - Flush, Stud Mount - Spacer, Stand-offs, Push-Thru

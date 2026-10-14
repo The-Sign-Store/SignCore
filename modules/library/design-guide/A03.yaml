@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: A03
+version: 1.0.0
+section: ADA SIGNS
+order: 870
+basis: Industry
+applies_to:
+  components:
+    - ADA_SIGN
+standard: 'Pictograms: 6" minimum high pictogram field with no text inside it; the text description goes
+  directly below the field.'
+why: Required whenever a pictogram is used.

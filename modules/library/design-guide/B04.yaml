@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: B04
+version: 1.0.0
+section: BANNERS
+order: 610
+basis: SignOS
+applies_to:
+  components:
+    - BANNER
+standard: 'Media: 13 oz standard (single sided), 18 oz blockout (double sided: each side its own PRINT page,
+  check orientation), 8 oz mesh for fences and wind (no text under 2" on mesh). Banners wider than 64" in both
+  directions need a seam; show it on the proof.'
+why: 64" is the roll limit in SignOS; mesh holes break up small text.

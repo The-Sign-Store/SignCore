@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: C02
+version: 1.0.0
+section: PROOF COLOR STANDARDS (how materials look on proofs)
+order: 120
+basis: House
+standard: "Tinted glass: blue-grey #9DAFBB (R157 G175 B187). Mirrored / reflective glass: #7D8C96 with the
+  same white glare lines."

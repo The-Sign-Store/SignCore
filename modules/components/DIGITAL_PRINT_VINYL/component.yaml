@@ -1,0 +1,128 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: DIGITAL_PRINT_VINYL
+name: Digital Print Vinyl
+version: 1.0.0
+order: 200
+description: Printed vinyl; laminate choices follow the media.
+show_as_tool: false
+repeatable: true
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: number
+    default: "1"
+    required: true
+  - variable: SIZE
+    label: DIMENSIONS
+    column: 1
+    type: dims
+    default: 24|24
+    options:
+      - W
+      - H
+    required: true
+  - variable: MEDIA
+    column: 2
+    type: select
+    default: Arlon 4500GLX Print Vinyl
+    options:
+      - Arlon 4500GLX Print Vinyl
+      - GF226 Smooth Wall Vinyl
+      - 3M IJ8624 Textured Wall Vinyl
+      - 3M IJ180 Wrap Vinyl
+      - Oralite 5400 Commercial Grade Reflective Vinyl
+      - Oracal 3640 Gloss Clear Vinyl
+      - Brightline Window Perf 60/40
+      - Brightline Window Perf 70/30
+    required: true
+    signos: Master_Mat_Vinyl_Print
+  - variable: LAMINATE (ARLON)
+    label: OVERLAMINATE
+    column: 2
+    type: select
+    default: Arlon 3210 Premium Laminate
+    options:
+      - Arlon 3210 Premium Laminate
+    show_if: MEDIA=Arlon 4500GLX Print Vinyl|GF226 Smooth Wall Vinyl
+    required: true
+  - variable: LAMINATE (TEXTURED)
+    label: OVERLAMINATE
+    column: 2
+    type: select
+    default: 3M 8524 Textured Luster Wall Laminate
+    options:
+      - 3M 8524 Textured Luster Wall Laminate
+    show_if: MEDIA=3M IJ8624 Textured Wall Vinyl
+    required: true
+  - variable: LAMINATE (WRAP)
+    label: OVERLAMINATE
+    column: 2
+    type: select
+    default: 3M 8518 Wrap Gloss Laminate
+    options:
+      - 3M 8518 Wrap Gloss Laminate
+      - 3M 8519 Wrap Luster Laminate
+      - 3M 8520 Wrap Matte Laminate
+    show_if: MEDIA=3M IJ180 Wrap Vinyl
+    required: true
+  - variable: LAMINATE (REFLECTIVE)
+    label: OVERLAMINATE
+    column: 2
+    type: select
+    default: Arlon 3210 Premium Laminate
+    options:
+      - Arlon 3210 Premium Laminate
+      - 3M 8518 Wrap Gloss Laminate
+      - 3M 8519 Wrap Luster Laminate
+      - 3M 8520 Wrap Matte Laminate
+    show_if: MEDIA=Oralite 5400 Commercial Grade Reflective Vinyl
+    required: true
+  - variable: LAMINATE (CLEAR)
+    label: OVERLAMINATE
+    column: 2
+    type: select
+    default: None
+    options:
+      - None
+      - Arlon 3210 Premium Laminate
+    show_if: MEDIA=Oracal 3640 Gloss Clear Vinyl
+    required: true
+  - variable: LAMINATE (PERF)
+    label: OVERLAMINATE
+    column: 2
+    type: select
+    default: None
+    options:
+      - None
+    show_if: MEDIA~=Perf
+    required: true
+  - variable: CONTOUR CUT
+    column: 3
+    type: select
+    default: No
+    options:
+      - No
+      - Yes
+    required: true
+    signos: "Master_Services: SRV_FIN_CONTOUR"
+  - variable: WEEDING
+    column: 3
+    type: select
+    default: No
+    options:
+      - No
+      - Easy
+      - Complex
+    show_if: CONTOUR CUT=Yes
+    required: true
+  - variable: MASK
+    column: 3
+    type: select
+    default: No
+    options:
+      - No
+      - Yes
+    show_if: CONTOUR CUT=Yes
+    required: true

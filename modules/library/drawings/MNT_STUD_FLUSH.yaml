@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: MNT_STUD_FLUSH
+version: 1.0.0
+title: STUD MOUNT - FLUSH
+category: Mounting
+order: 20
+applies_to:
+  when: MOUNTING=Stud Mount - Flush OR BACKER MOUNTING=Stud Mount
+notes: Threaded studs set into drilled holes with adhesive; panel sits tight to the wall.

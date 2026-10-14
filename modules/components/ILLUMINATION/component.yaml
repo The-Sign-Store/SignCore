@@ -1,0 +1,92 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: ILLUMINATION
+name: Illumination
+version: 1.0.0
+order: 50
+description: LEDs, power, controls, disconnect and ETL.
+show_as_tool: false
+repeatable: false
+fields:
+  - variable: LIGHT SOURCE
+    label: ILLUMINATION
+    column: 1
+    type: select
+    default: LED Modules
+    options:
+      - LED Modules
+      - LED Strip
+      - Non-Illuminated
+    required: true
+    signos: "Master_Mat_Fab_Channel: CLD-SUP-LED-WHT"
+  - variable: LED COLOR
+    column: 1
+    type: db
+    default: White (6500K)
+    options:
+      - LED
+    show_if: LIGHT SOURCE!=Non-Illuminated
+    required: true
+    signos: LED_Colors tab
+  - variable: POWER SUPPLY
+    column: 2
+    type: select
+    default: Per Production
+    options:
+      - Per Production
+      - 60W
+      - 120W
+    show_if: LIGHT SOURCE!=Non-Illuminated
+    signos: "Master_Mat_Fab_Channel: CLD-SUP-PSU-60 / CLD-SUP-PSU-120"
+  - variable: PHOTO CELL
+    column: 2
+    type: select
+    default: Yes
+    options:
+      - Yes
+      - No
+    show_if: LIGHT SOURCE!=Non-Illuminated
+    required: true
+  - variable: TIMER
+    column: 2
+    type: select
+    default: No
+    options:
+      - No
+      - Yes
+    show_if: LIGHT SOURCE!=Non-Illuminated
+  - variable: DISCONNECT SWITCH
+    label: DISCONNECT
+    column: 3
+    type: select
+    default: Yes
+    options:
+      - Yes
+      - No
+    show_if: LIGHT SOURCE!=Non-Illuminated
+    required: true
+    signos: NEC 600
+    notes: Required on lit signs
+  - variable: ETL LABEL
+    label: ETL / UL
+    column: 3
+    type: select
+    default: Yes
+    options:
+      - Yes
+      - No
+    show_if: LIGHT SOURCE!=Non-Illuminated
+    required: true
+    signos: UL 48
+    notes: Required on lit signs
+  - variable: PRIMARY ELECTRICAL
+    label: ELECTRICAL
+    column: 3
+    type: select
+    default: 120V by Customer's Electrician
+    options:
+      - 120V by Customer's Electrician
+      - 277V by Customer's Electrician
+      - Existing Circuit at Sign
+    show_if: LIGHT SOURCE!=Non-Illuminated
+    required: true

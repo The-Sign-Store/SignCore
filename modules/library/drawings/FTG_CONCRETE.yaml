@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: FTG_CONCRETE
+version: 1.0.0
+title: CONCRETE FOOTER
+category: Footers and Poles
+order: 180
+applies_to:
+  components:
+    - POLE
+  when: FOOTER=Concrete (80 lb Bags)|Engineered Concrete Footer
+notes: Pole set in a concrete footer. Embed depth comes from the spec.

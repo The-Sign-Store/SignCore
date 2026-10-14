@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: C10
+version: 1.0.0
+section: PROOF COLOR STANDARDS (how materials look on proofs)
+order: 200
+basis: SignOS
+applies_to:
+  when: MEDIA~=Reflective
+standard: "Reflective vinyl (Oralite 5400): show it in its normal daytime color and add the note REFLECTIVE.
+  Do not simulate shine."

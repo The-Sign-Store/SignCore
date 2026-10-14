@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: B02
+version: 1.0.0
+section: BANNERS
+order: 590
+basis: House
+applies_to:
+  components:
+    - BANNER
+  when: GROMMETS=Yes
+standard: 'Grommets: {GROMMET SPACING|corners and every 18-24 in}. Mark each grommet as a 1/2" circle on the
+  PRODUCTION layer and keep art 1" clear around them.'
+why: The shop punches where marked, and nothing important lands under a grommet.
+how_to: Draw one 0.5" circle; Edit > Step and Repeat (Ctrl+Shift+D) with the spacing as the offset.

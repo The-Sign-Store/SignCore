@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://signcore/schemas/product.schema.json",
+  "title": "SignCore product module",
+  "description": "A product a salesperson or designer picks, made of component sections in proof order. Lives at modules/products/<slug>.yaml.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "name", "version", "sections"],
+  "properties": {
+    "schema": { "const": "signcore.product/v1" },
+    "name": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "order": { "type": "integer" },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["component"],
+        "properties": {
+          "component": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+          "title": { "type": "string" },
+          "include": { "enum": ["required", "optional-on", "optional-off"], "default": "required" },
+          "repeatable": { "type": "boolean" },
+          "page_group": { "type": "integer" },
+          "defaults": { "type": "object", "additionalProperties": { "type": ["string", "number"] }, "description": "Component defaults changed for this product only." }
+        }
+      }
+    },
+    "legacy_fields": {
+      "type": "array",
+      "description": "Old per-product fields (Product_Schema). Used only when a product has no sections.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["variable"],
+        "properties": {
+          "variable": { "type": "string" },
+          "column": { "type": ["integer", "string"] },
+          "default": { "type": ["string", "number"] },
+          "options": { "type": "string", "description": "Comma-separated, as in Product_Schema." }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: W01
+version: 1.0.0
+section: WHITE INK AND CLEAR MATERIALS (HP R1000)
+order: 480
+basis: House
+applies_to:
+  when: PRINT LAYERS~=White|Layer OR SIDEDNESS (CLEAR)=Second Surface Print OR GRAPHIC TYPE=2nd Surface Direct
+    Print OR MATERIAL COLOR=Clear & GRAPHIC TYPE~=Print OR MEDIA~=Clear
+standard: "White ink is its own object on its own layer named WHITE INK: a spot color named WHITE at 100%, set
+  to overprint, sitting exactly over the art."
+why: The RIP builds the white channel from that spot; mixing it into the art prints white over color.
+how_to: "Palette Editor: new color WHITE, Treat as Spot. Duplicate the art (Ctrl+D, then align), weld, fill
+  WHITE, right-click > Overprint Fill."

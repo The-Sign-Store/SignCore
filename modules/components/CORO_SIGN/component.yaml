@@ -1,0 +1,131 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: CORO_SIGN
+name: Coroplast
+version: 1.0.0
+order: 160
+description: Coroplast sign with optional step stakes.
+show_as_tool: false
+repeatable: true
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: number
+    default: "1"
+    required: true
+  - variable: SIZE
+    label: DIMENSIONS
+    column: 1
+    type: dims
+    default: 24|18
+    options:
+      - W
+      - H
+    required: true
+  - variable: THICKNESS
+    column: 1
+    type: select
+    default: 4mm
+    options:
+      - 4mm
+      - 10mm
+    required: true
+  - variable: SIDEDNESS
+    column: 2
+    type: select
+    default: Double Sided
+    options:
+      - Single Sided
+      - Double Sided
+    required: true
+  - variable: MATERIAL COLOR
+    column: 2
+    type: color
+    default: White
+    options:
+      - White
+      - Custom
+    required: true
+  - variable: GRAPHIC TYPE
+    label: GRAPHIC
+    column: 2
+    type: select
+    default: Direct Print
+    options:
+      - None
+      - Direct Print
+      - Digital Print Vinyl
+      - Digital Print Contour Cut Vinyl
+      - Contour Cut Vinyl
+      - Paint
+    required: true
+  - variable: OVERLAMINATE
+    column: 3
+    type: select
+    default: None
+    options:
+      - None
+      - Arlon 3210 Premium Laminate
+      - 3M 8518 Wrap Gloss Laminate
+      - 3M 8519 Wrap Luster Laminate
+      - 3M 8520 Wrap Matte Laminate
+    show_if: GRAPHIC TYPE~=Print
+    required: true
+    signos: "Master_Mat_Vinyl_Print: VIN_ROL_LAM_*"
+  - variable: PRINT COLOR
+    label: COLOR
+    column: 3
+    type: fullcolor
+    default: Full Color Digital
+    show_if: GRAPHIC TYPE~=Print
+  - variable: VINYL COLOR
+    label: COLOR
+    column: 3
+    type: vinyl
+    default: 751RA
+    options:
+      - "951"
+      - 751RA
+      - "651"
+      - "631"
+    show_if: GRAPHIC TYPE=Contour Cut Vinyl
+    required: true
+    signos: Master_Mat_Vinyl_Cut
+  - variable: PAINT COLOR
+    label: COLOR
+    column: 3
+    type: paint
+    show_if: GRAPHIC TYPE=Paint
+    required: true
+    signos: SW_Colors / PMS_Colors
+  - variable: ROUTING
+    column: 3
+    type: select
+    default: No
+    options:
+      - No
+      - Yes - Simple
+      - Yes - Complex
+    required: true
+    signos: "Master_Services: SRV_CNC_SETUP_SMP / CPL"
+  - variable: CORNERS
+    column: 3
+    type: select
+    default: Square
+    options:
+      - Square
+      - Rounded 1/4"
+      - Rounded 1/2"
+      - Rounded 1"
+    hide_values:
+      - Square
+    notes: Rounded corners print a detail drawing
+  - variable: STEP STAKE
+    column: 3
+    type: select
+    default: No
+    options:
+      - No
+      - Yes
+    signos: "Master_Mat_Hardware: INS_HRD_STK_H / HD"

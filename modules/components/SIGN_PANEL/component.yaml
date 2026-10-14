@@ -1,0 +1,136 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: SIGN_PANEL
+name: Sign Panel
+version: 1.0.0
+order: 90
+description: Flat panel (ACM, aluminum, PVC, HDU) with graphics.
+show_as_tool: true
+repeatable: false
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: number
+    default: "1"
+    required: true
+  - variable: PANEL SIZE
+    label: DIMENSIONS
+    column: 1
+    type: dims
+    default: 48|36
+    options:
+      - W
+      - H
+    required: true
+    signos: INV_Sheets (ACM max 60" x 120")
+  - variable: SIDEDNESS
+    column: 1
+    type: select
+    default: Double Sided
+    options:
+      - Single Sided
+      - Double Sided
+    required: true
+  - variable: PANEL MATERIAL
+    label: MATERIAL
+    column: 2
+    type: select
+    default: 3mm ACM
+    options:
+      - 3mm ACM
+      - 6mm ACM
+      - 3mm Brushed ACM
+      - .080 Aluminum
+      - .063 Aluminum
+      - 6mm PVC
+      - 1.5" HDU
+    required: true
+    signos: "INV_Sheets: SHT_ACM_* / SHT_ALM_* / SHT_PVC_* / SHT_HDU_*"
+  - variable: PANEL FINISH
+    label: MATERIAL COLOR
+    column: 2
+    type: finish
+    default: White
+    options:
+      - White
+      - Black
+      - Brushed Aluminum
+    required: true
+    signos: ACM_Colors
+  - variable: CUSTOM SHAPE
+    label: SHAPE
+    column: 2
+    type: select
+    default: No (Square Cut)
+    options:
+      - No (Square Cut)
+      - Yes - Simple Route
+      - Yes - Complex Route
+    signos: "Master_Services: SRV_CNC_SETUP_SMP / SRV_CNC_SETUP_CPL"
+  - variable: CORNERS
+    column: 2
+    type: select
+    default: Square
+    options:
+      - Square
+      - Rounded 1/4"
+      - Rounded 1/2"
+      - Rounded 1"
+    hide_values:
+      - Square
+    notes: Rounded corners print a detail drawing
+  - variable: GRAPHIC TYPE
+    label: GRAPHIC
+    column: 3
+    type: select
+    default: Digital Print Vinyl
+    options:
+      - Digital Print Vinyl
+      - Direct Print
+      - Cut Vinyl
+      - Paint
+      - None
+    required: true
+  - variable: MEDIA
+    column: 3
+    type: select
+    default: Arlon 4500GLX Print Vinyl
+    options:
+      - Arlon 4500GLX Print Vinyl
+      - 3M IJ180 Wrap Vinyl
+      - Oralite 5400 Commercial Grade Reflective Vinyl
+    show_if: GRAPHIC TYPE=Digital Print Vinyl
+    required: true
+    signos: "Master_Mat_Vinyl_Print: VIN_ROL_PRT_4500 / IJ180 / 5400"
+  - variable: OVERLAMINATE
+    label: LAMINATE
+    column: 3
+    type: select
+    default: Arlon 3210 Premium Laminate
+    options:
+      - Arlon 3210 Premium Laminate
+      - 3M 8518 Wrap Gloss Laminate
+      - 3M 8519 Wrap Luster Laminate
+      - 3M 8520 Wrap Matte Laminate
+    show_if: GRAPHIC TYPE=Digital Print Vinyl
+    required: true
+    signos: "Master_Mat_Vinyl_Print: VIN_ROL_LAM_3210 / 8518 / 8519 / 8520"
+  - variable: CUT VINYL
+    label: VINYL
+    column: 3
+    type: vinyl
+    default: 751RA
+    options:
+      - 751RA
+      - "951"
+      - "651"
+    show_if: GRAPHIC TYPE=Cut Vinyl
+    required: true
+    signos: Master_Mat_Vinyl_Cut
+  - variable: GRAPHIC PAINT
+    label: PAINT
+    column: 3
+    type: paint
+    show_if: GRAPHIC TYPE=Paint
+    required: true

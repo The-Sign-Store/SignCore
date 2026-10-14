@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: P07
+version: 1.0.0
+section: DIGITAL PRINT (HP Latex 300 roll / HP Latex R1000 flatbed)
+order: 450
+basis: House
+applies_to:
+  when: COMPONENT=DIGITAL_PRINT_VINYL|BANNER OR GRAPHIC TYPE~=Print OR COVER GRAPHICS~=Print OR FACE
+    GRAPHICS~=Print OR FACE VINYL~=Print
+standard: "Brand-critical colors: the PMS / SW number goes on the proof and as the spot color name in the
+  file. Print a color swatch strip for approval on first orders."
+why: Screens and printers differ; the strip shows the customer the real print color before the full run.

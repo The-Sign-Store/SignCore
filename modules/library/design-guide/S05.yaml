@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: S05
+version: 1.0.0
+section: POLES, MONUMENTS AND STRUCTURE
+order: 780
+basis: House
+applies_to:
+  components:
+    - MONUMENT_BASE
+standard: "Monument bases: show the base material and the reveal. Bases built by others (brick, stone, stucco)
+  are labeled BY OTHERS with the size they must build to."
+why: Makes the scope split clear to the customer and their contractor.

@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: V11
+version: 1.0.0
+section: CUT VINYL (Graphtec 64 plotter)
+order: 380
+basis: SignOS
+applies_to:
+  when: COMPONENT=CUT_VINYL_DECAL OR GRAPHIC TYPE=Cut Vinyl|Contour Cut Vinyl|Translucent Cut Vinyl OR COVER
+    GRAPHICS~=Cut Vinyl OR FACE GRAPHICS~=Cut Vinyl OR FACE VINYL=Translucent Vinyl OR COMPONENT=ROUTED_FACE &
+    DIFFUSER=White Diffuser Vinyl
+standard: "The vinyl series on the proof matches the spec: 651 intermediate (flat, short to mid term); 751 /
+  951 cast (long term, curves, rivets); 631 matte (indoor walls); 8500 / 8800 translucent (lit faces)."
+why: Series choice is a durability promise to the customer (SignOS Master_Mat_Vinyl_Cut).

@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: H02
+version: 1.0.0
+section: HDU (Precision Board)
+order: 840
+basis: House
+applies_to:
+  components:
+    - HDU_SIGN
+standard: "HDU route file: outline RED, raised copy / v-carve GREEN, texture area as its own closed shape
+  named TEXTURE on the ROUTE page."
+why: The CNC operator assigns a different tool to each.

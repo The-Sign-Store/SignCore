@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../schemas/product.schema.json
+schema: signcore.product/v1
+name: Digital Print Vinyl
+version: 1.0.0
+order: 140
+sections:
+  - component: DIGITAL_PRINT_VINYL
+    title: Digital Print Vinyl
+    include: required
+    repeatable: true
+    page_group: 1
+legacy_fields:
+  - variable: QUANTITY
+    column: 1
+    default: "1"
+  - variable: WIDTH
+    column: 1
+    default: "24"
+  - variable: HEIGHT
+    column: 1
+    default: "24"
+  - variable: MEDIA
+    column: 2
+    default: Arlon 4500GLX Print Vinyl
+    options: Arlon 4500GLX Print Vinyl, GF226 Smooth Wall Vinyl, 3M IJ8624 Textured Wall Vinyl, 3M IJ180 Wrap
+      Vinyl, Oralite 5400 Commercial Grade Reflective Vinyl, Oracal 3640 Gloss Clear Vinyl, Brightline Window
+      Perf 60/40, Brightline Window Perf 70/30
+  - variable: OVERLAMINATE
+    column: 2
+    default: Arlon 3210 Premium Laminate
+    options: Arlon 3210 Premium Laminate, 3M 8524 Textured Luster Wall Laminate, 3M 8518 Wrap Gloss Laminate, 3M
+      8519 Wrap Luster Laminate, 3M 8520 Wrap Matte Laminate, None
+  - variable: CONTOUR CUT
+    column: 3
+    default: No
+    options: No, Yes
+  - variable: WEEDING
+    column: 3
+    default: No
+    options: No, Easy, Complex
+  - variable: MASK
+    column: 3
+    default: No
+    options: No, Yes

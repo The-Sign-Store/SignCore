@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: MNT_FLUSH_CL
+version: 1.0.0
+title: FLUSH MOUNT (LETTERS / CLOUD)
+category: Mounting
+order: 60
+applies_to:
+  components:
+    - CHANNEL_LETTERS_FL
+    - CLOUD_SIGN_FL
+  when: MOUNTING=Flush Mount
+notes: Letters stud-mounted directly to the wall; wires pass through the wall to a remote power supply.

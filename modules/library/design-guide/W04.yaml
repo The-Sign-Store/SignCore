@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: W04
+version: 1.0.0
+section: WHITE INK AND CLEAR MATERIALS (HP R1000)
+order: 510
+basis: SignOS
+applies_to:
+  when: PRINT LAYERS~=White|Layer OR SIDEDNESS (CLEAR)=Second Surface Print OR GRAPHIC TYPE=2nd Surface Direct
+    Print OR MATERIAL COLOR=Clear & GRAPHIC TYPE~=Print OR MEDIA~=Clear
+standard: Use white only where needed. On the R1000, white prints at 6 LF/hr, 3-layer at 3.1 and 5-layer at
+  1.6, against 18 LF/hr for a standard print.
+why: Every white layer multiplies press time (SignOS MACH_HP_R1000 speeds).

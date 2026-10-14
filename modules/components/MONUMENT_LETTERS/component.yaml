@@ -1,0 +1,428 @@
+# yaml-language-server: $schema=../../../schemas/component.schema.json
+schema: signcore.component/v1
+id: MONUMENT_LETTERS
+name: Monument Letters
+version: 1.0.0
+order: 260
+description: "3D dimensional letters on a monument or free-standing sign: non-lit, front lit or halo lit;
+  thickness or gauges and depth, colors, top or face mounting."
+show_as_tool: true
+repeatable: true
+fields:
+  - variable: QUANTITY
+    label: QTY
+    column: 1
+    type: autoqty
+    default: "1"
+    options:
+      - LETTER HEIGHT
+    required: true
+    notes: Counted from TEXT
+  - variable: LETTER HEIGHT
+    column: 1
+    type: number
+    default: "12"
+    options:
+      - '"'
+    required: true
+    notes: Cap height, inches
+  - variable: TEXT
+    column: 1
+    type: text
+    required: true
+  - variable: FONT
+    column: 1
+    type: text
+    notes: Typeface name
+  - variable: LIGHTING
+    column: 2
+    type: select
+    default: Non-Lit
+    options:
+      - Non-Lit
+      - Front Lit
+      - Halo Lit
+      - Ground Lit (by others)
+    required: true
+    notes: Front lit = channel letters; halo lit = reverse channel letters
+  - variable: LETTER TYPE
+    label: TYPE
+    column: 2
+    type: select
+    default: Flat Cut Aluminum
+    options:
+      - Flat Cut Aluminum
+      - Fabricated Aluminum
+      - Cast Aluminum
+      - Flat Cut Stainless Steel
+      - Flat Cut Brass
+      - Flat Cut Acrylic
+      - Flat Cut PVC
+      - HDU (Routed)
+    show_if: LIGHTING=Non-Lit|Ground Lit (by others)
+    required: true
+  - variable: MATERIAL THICKNESS
+    label: THICKNESS
+    column: 2
+    type: select
+    default: 1/2"
+    options:
+      - 1/8"
+      - 3/16"
+      - 1/4"
+      - 3/8"
+      - 1/2"
+      - 3/4"
+      - 1"
+      - 1-1/2"
+      - 2"
+    show_if: LIGHTING=Non-Lit|Ground Lit (by others)&LETTER TYPE!=Fabricated Aluminum
+    required: true
+    notes: Plate thickness of flat cut, cast or routed letters
+  - variable: FACE MATERIAL
+    label: FACE
+    column: 2
+    type: select
+    default: 3/16" Acrylic
+    options:
+      - 3/16" Acrylic
+      - 3/16" Polycarbonate
+    show_if: LIGHTING=Front Lit
+    required: true
+    notes: Translucent lit face
+  - variable: FACE GAUGE
+    label: FACE
+    column: 2
+    type: select
+    default: ".063"
+    options:
+      - ".040"
+      - ".050"
+      - ".063"
+      - ".080"
+      - ".090"
+      - ".125"
+    show_if: LIGHTING=Halo Lit
+    required: true
+    notes: Aluminum face of the reverse channel letter
+  - variable: FACE GAUGE - UNLIT
+    label: FACE
+    column: 2
+    type: select
+    default: ".063"
+    options:
+      - ".040"
+      - ".050"
+      - ".063"
+      - ".080"
+      - ".090"
+      - ".125"
+    show_if: LIGHTING=Non-Lit|Ground Lit (by others)&LETTER TYPE=Fabricated Aluminum
+    required: true
+    notes: Aluminum sheet thickness of the letter face
+  - variable: RETURN GAUGE
+    label: RETURN
+    column: 2
+    type: select
+    default: ".040"
+    options:
+      - ".040"
+      - ".050"
+      - ".063"
+    show_if: LIGHTING=Front Lit|Halo Lit
+    required: true
+    notes: Aluminum thickness of the letter sides
+  - variable: RETURN GAUGE - UNLIT
+    label: RETURN
+    column: 2
+    type: select
+    default: ".040"
+    options:
+      - ".040"
+      - ".050"
+      - ".063"
+    show_if: LIGHTING=Non-Lit|Ground Lit (by others)&LETTER TYPE=Fabricated Aluminum
+    required: true
+  - variable: LETTER DEPTH
+    label: DEPTH
+    column: 2
+    type: select
+    default: 5"
+    options:
+      - 2"
+      - 3"
+      - 4"
+      - 5"
+      - 6"
+    show_if: LIGHTING=Front Lit|Halo Lit
+    required: true
+    notes: Return depth of the lit letters
+  - variable: LETTER DEPTH - UNLIT
+    label: DEPTH
+    column: 2
+    type: select
+    default: 3"
+    options:
+      - 1-1/2"
+      - 2"
+      - 3"
+      - 4"
+      - 5"
+      - 6"
+    show_if: LIGHTING=Non-Lit|Ground Lit (by others)&LETTER TYPE=Fabricated Aluminum
+    required: true
+  - variable: TRIM CAP
+    column: 2
+    type: select
+    default: 1"
+    options:
+      - 3/4"
+      - 1"
+      - 2"
+    show_if: LIGHTING=Front Lit
+    required: true
+  - variable: BACKS
+    column: 2
+    type: select
+    default: 3/16" Clear Polycarbonate
+    options:
+      - 3/16" Clear Polycarbonate
+      - 1/4" Clear Acrylic
+    show_if: LIGHTING=Halo Lit
+    required: true
+    notes: Clear back lets the halo out
+  - variable: FINISH
+    column: 3
+    type: select
+    default: Painted
+    options:
+      - Painted
+      - Brushed
+      - Polished
+      - Anodized
+      - Natural / Mill
+    show_if: LIGHTING!=Front Lit
+    required: true
+  - variable: LETTER COLOR
+    label: COLOR
+    column: 3
+    type: paint
+    show_if: LIGHTING!=Front Lit&FINISH=Painted
+    required: true
+  - variable: FACE COLOR
+    column: 3
+    type: color
+    default: White
+    options:
+      - White
+      - Clear
+      - Red
+    show_if: LIGHTING=Front Lit
+    required: true
+  - variable: FACE VINYL
+    label: VINYL
+    column: 3
+    type: select
+    default: None
+    options:
+      - None
+      - Translucent Vinyl
+      - Translucent Digital Print
+    show_if: LIGHTING=Front Lit
+    hide_values:
+      - None
+  - variable: VINYL COLOR
+    column: 3
+    type: vinyl
+    default: "8500"
+    options:
+      - "8500"
+      - "8800"
+    show_if: LIGHTING=Front Lit&FACE VINYL=Translucent Vinyl
+    required: true
+  - variable: TRIM CAP COLOR
+    column: 3
+    type: db
+    options:
+      - TRIMCAP
+    show_if: LIGHTING=Front Lit
+    required: true
+  - variable: RETURN COLOR - COIL
+    label: RETURN COLOR
+    column: 3
+    type: db
+    options:
+      - COIL
+    show_if: LIGHTING=Front Lit
+    required: true
+  - variable: RETURN COLOR
+    column: 3
+    type: finish
+    default: Match Face
+    options:
+      - Match Face
+      - Black
+      - Bronze
+      - White
+    show_if: LIGHTING=Halo Lit&FINISH=Painted
+  - variable: RETURN COLOR - UNLIT
+    label: RETURN COLOR
+    column: 3
+    type: finish
+    default: Match Face
+    options:
+      - Match Face
+      - Black
+      - Bronze
+      - White
+    show_if: LIGHTING=Non-Lit|Ground Lit (by others)&LETTER TYPE=Fabricated Aluminum&FINISH=Painted
+  - variable: MOUNTING
+    column: 4
+    type: select
+    default: Top Mount - Pinned
+    options:
+      - Top Mount - Pinned
+      - Top Mount - Adhesive
+      - Stud Mount - Flush
+      - Stud Mount - Spacer
+      - Standoffs
+    required: true
+    notes: "Top mount: letters stand on the monument cap, touching on their bottoms"
+  - variable: PIN SIZE
+    label: PINS
+    column: 4
+    type: select
+    default: 1/4"-20 Threaded Rod
+    options:
+      - "#10-24 Stud"
+      - 1/4"-20 Threaded Rod
+      - 3/8"-16 Threaded Rod
+    show_if: MOUNTING=Top Mount - Pinned|Stud Mount - Flush|Stud Mount - Spacer
+    required: true
+  - variable: PIN EMBED
+    column: 4
+    type: select
+    default: 2"
+    options:
+      - 1"
+      - 1-1/2"
+      - 2"
+      - 3"
+      - 4"
+    show_if: MOUNTING=Top Mount - Pinned
+    required: true
+    notes: Depth the pins go into the monument
+  - variable: SPACER DEPTH
+    label: SPACER
+    column: 4
+    type: select
+    default: 1"
+    options:
+      - 1/2"
+      - 3/4"
+      - 1"
+      - 1-1/2"
+    show_if: MOUNTING=Stud Mount - Spacer
+    required: true
+  - variable: STANDOFF MODEL
+    label: STANDOFF
+    column: 4
+    type: select
+    default: AL25-30A
+    options:
+      - AL25-30A
+      - AL16-25A
+    show_if: MOUNTING=Standoffs
+    required: true
+    notes: Aluminum standoff. Use Custom Input for other models / materials
+  - variable: STANDOFF SIZE
+    column: 4
+    type: text
+    default: 25 mm dia. x 30 mm
+    show_if: MOUNTING=Standoffs&STANDOFF MODEL=AL25-30A
+    required: true
+  - variable: STANDOFF SIZE - AL16
+    label: STANDOFF SIZE
+    column: 4
+    type: text
+    default: 16 mm dia. x 25 mm
+    show_if: MOUNTING=Standoffs&STANDOFF MODEL=AL16-25A
+    required: true
+  - variable: STANDOFF SIZE - CUSTOM
+    label: STANDOFF SIZE
+    column: 4
+    type: text
+    show_if: MOUNTING=Standoffs&STANDOFF MODEL=CUSTOM
+    required: true
+    notes: e.g. 3/4" dia. x 1"
+  - variable: STANDOFF FINISH
+    column: 4
+    type: select
+    default: Brushed Aluminum
+    options:
+      - Brushed Aluminum
+      - Satin Aluminum
+      - Black
+      - Chrome
+      - Gold
+    show_if: MOUNTING=Standoffs
+    required: true
+  - variable: MONUMENT SURFACE
+    label: SURFACE
+    column: 4
+    type: select
+    default: Concrete Cap
+    options:
+      - Concrete Cap
+      - Stone Cap
+      - Brick
+      - Stucco / EIFS
+      - Aluminum Cabinet Top
+      - HDU
+    required: true
+  - variable: MOUNTING PATTERN
+    label: PATTERN
+    column: 4
+    type: select
+    default: Yes
+    options:
+      - Yes
+      - No
+    hide_values:
+      - No
+    notes: Full-size paper pattern for pin / stud holes
+  - variable: LED COLOR
+    column: 5
+    type: db
+    default: White (6500K)
+    options:
+      - LED
+    show_if: LIGHTING=Front Lit|Halo Lit
+    required: true
+  - variable: DIFFUSER VINYL
+    label: DIFFUSER
+    column: 5
+    type: select
+    default: No
+    options:
+      - No
+      - Yes
+    show_if: LIGHTING=Halo Lit
+    hide_values:
+      - No
+  - variable: POWER SUPPLY
+    column: 5
+    type: select
+    default: Remote, inside monument
+    options:
+      - Remote, inside monument
+      - Per Production
+    show_if: LIGHTING=Front Lit|Halo Lit
+  - variable: PHOTO CELL
+    column: 5
+    type: select
+    default: Yes
+    options:
+      - Yes
+      - No
+    show_if: LIGHTING=Front Lit|Halo Lit

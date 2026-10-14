@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: PNL_ROUNDED
+version: 1.0.0
+title: ROUNDED CORNERS
+category: Panel Finishing
+order: 230
+applies_to:
+  when: CORNERS~=Rounded
+notes: Corners radiused; size from the CORNERS value.

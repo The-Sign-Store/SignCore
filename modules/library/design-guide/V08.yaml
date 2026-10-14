@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: V08
+version: 1.0.0
+section: CUT VINYL (Graphtec 64 plotter)
+order: 350
+basis: House
+applies_to:
+  when: COMPONENT=CUT_VINYL_DECAL OR GRAPHIC TYPE=Cut Vinyl|Contour Cut Vinyl|Translucent Cut Vinyl OR COVER
+    GRAPHICS~=Cut Vinyl OR FACE GRAPHICS~=Cut Vinyl OR FACE VINYL=Translucent Vinyl OR COMPONENT=ROUTED_FACE &
+    DIFFUSER=White Diffuser Vinyl
+standard: Graphics applied to the inside of glass but read from outside are mirrored on the CUT page, and the
+  page is named CUT - MIRRORED 2ND SURFACE.
+how_to: Select the art > Property bar > Mirror Horizontally.

@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: LTR_TRIMCAP
+version: 1.0.0
+title: TRIM CAP & RETURN
+category: Letter Construction
+order: 130
+applies_to:
+  components:
+    - CHANNEL_LETTERS_FL
+    - MONUMENT_LETTERS
+    - CLOUD_SIGN_FL
+  when: COMPONENT=CHANNEL_LETTERS_FL|CLOUD_SIGN_FL OR LIGHTING=Front Lit
+notes: "Close-up of the letter edge: trim cap holds the acrylic face to the return."

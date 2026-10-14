@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../schemas/product.schema.json
+schema: signcore.product/v1
+name: ADA Signs
+version: 1.0.0
+order: 70
+sections:
+  - component: ADA_SIGN
+    title: ADA Sign
+    include: required
+    repeatable: true
+    page_group: 1

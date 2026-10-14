@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=../../schemas/product.schema.json
+schema: signcore.product/v1
+name: HDU Sign
+version: 1.0.0
+order: 170
+sections:
+  - component: HDU_SIGN
+    title: HDU Sign
+    include: required
+    repeatable: true
+    page_group: 1
+legacy_fields:
+  - variable: QUANTITY
+    column: 1
+    default: "1"
+  - variable: WIDTH
+    column: 1
+    default: "48"
+  - variable: HEIGHT
+    column: 1
+    default: "48"
+  - variable: THICKNESS
+    column: 1
+    default: 1.5"
+    options: 1", 1.5", 2"
+  - variable: SIDEDNESS
+    column: 2
+    default: Single Sided
+    options: Single Sided, Double Sided
+  - variable: GRAPHIC TYPE
+    column: 2
+    default: Paint
+    options: Paint
+  - variable: BACKGROUND PAINT COLOR
+    column: 2
+    default: Select...
+  - variable: FOREGROUND PAINT COLOR
+    column: 2
+    default: Select...
+  - variable: ADDITIONAL COLORS
+    column: 2
+  - variable: ROUTING
+    column: 3
+    default: Shape Only
+    options: Shape Only, Standard Wash Out, Textured
+  - variable: MOUNTING
+    column: 3
+    default: Stud Mount - Flush
+    options: None, Stud Mount - Flush, Stud Mount - Spacer, Stand-offs, Hanging Bracket - Swinging, Hanging
+      Bracket - Fixed, Blade Bracket, Custom
+  - variable: BRACKET PAINT COLOR
+    column: 3
+    default: Select...

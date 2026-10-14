@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: CAB_EXTRUSION
+version: 1.0.0
+title: EXTRUSION CABINET
+category: Cabinet Construction
+order: 140
+applies_to:
+  components:
+    - CABINET
+  when: CONSTRUCTION=Extrusion
+notes: "Side section: extruded aluminum body with built-in face retainer."

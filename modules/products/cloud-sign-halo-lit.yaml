@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../schemas/product.schema.json
+schema: signcore.product/v1
+name: Cloud Sign - Halo Lit
+version: 1.0.0
+order: 190
+sections:
+  - component: CLOUD_SIGN_HALO
+    title: Cloud Sign - Halo Lit
+    include: required
+    repeatable: true

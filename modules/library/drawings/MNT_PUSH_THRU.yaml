@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: MNT_PUSH_THRU
+version: 1.0.0
+title: PUSH-THRU DETAIL
+category: Mounting
+order: 70
+applies_to:
+  when: MOUNTING=Push-Thru OR ROUTING=Push-Thru OR COPY TYPE=Push-Thru Acrylic
+notes: Thick acrylic copy pushed through the routed face and lit from inside the cabinet.

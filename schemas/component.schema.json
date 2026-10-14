@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://signcore/schemas/component.schema.json",
+  "title": "SignCore component module",
+  "description": "One building block of a sign (cabinet, channel letters, pole...). Lives at modules/components/<ID>/component.yaml.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "id", "name", "version", "fields"],
+  "properties": {
+    "schema": { "const": "signcore.component/v1" },
+    "id": { "type": "string", "pattern": "^[A-Z0-9_]+$", "description": "Stable ID used by products, rules, drawings and saved proofs. Must match the folder name." },
+    "name": { "type": "string", "minLength": 1, "description": "Display name shown in SignStudio." },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$", "description": "Semantic version. Bump it in every pull request that changes this module." },
+    "order": { "type": "integer", "description": "Position in component lists." },
+    "description": { "type": "string" },
+    "show_as_tool": { "type": "boolean", "default": false },
+    "repeatable": { "type": "boolean", "default": false },
+    "fields": { "type": "array", "items": { "$ref": "#/definitions/field" } },
+    "routing": { "type": "array", "items": { "$ref": "#/definitions/route" }, "description": "DRAFT (Step 0): departments this component sends work to." },
+    "materials": { "type": "array", "items": { "$ref": "#/definitions/material" }, "description": "DRAFT (Step 0): materials list lines." }
+  },
+  "definitions": {
+    "scalar": { "type": ["string", "number"] },
+    "field": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["variable", "type"],
+      "properties": {
+        "variable": { "type": "string", "pattern": "^[^=&|;{}]+$", "description": "Name used by show_if, calcs, product defaults and rules." },
+        "label": { "type": "string", "description": "Text printed on the proof. Defaults to the variable." },
+        "column": { "type": ["integer", "string"], "description": "Preview column (1-5)." },
+        "type": { "enum": ["select", "text", "number", "dims", "calc", "paint", "finish", "vinyl", "db", "color", "fullcolor", "rowmark", "pictogram", "autoqty"] },
+        "default": { "$ref": "#/definitions/scalar" },
+        "options": { "type": "array", "items": { "$ref": "#/definitions/scalar" } },
+        "show_if": { "type": "string", "description": "VAR=a|b, VAR!=a|b, VAR~=text, joined with &." },
+        "required": { "type": "boolean" },
+        "hide_values": { "type": "array", "items": { "$ref": "#/definitions/scalar" }, "description": "Values that are left off the proof (e.g. None)." },
+        "signos": { "type": "string", "description": "SignOS reference behind this field." },
+        "notes": { "type": "string" }
+      }
+    },
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["department"],
+      "properties": {
+        "department": { "type": "string", "description": "Key from modules/library/departments.yaml." },
+        "when": { "type": "string", "description": "Show_If syntax; blank = always." },
+        "work": { "type": "string", "description": "What the department does. {VARIABLE} prints the spec value." }
+      }
+    },
+    "material": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["item"],
+      "properties": {
+        "item": { "type": "string" },
+        "signos": { "type": "string", "description": "SignOS SKU (see SignOS_Reference)." },
+        "when": { "type": "string" },
+        "qty": { "type": ["string", "number"], "description": "Number or calc expression using {VARIABLE}, or TBD." },
+        "unit": { "type": "string" },
+        "department": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

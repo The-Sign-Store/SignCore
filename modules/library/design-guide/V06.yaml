@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: V06
+version: 1.0.0
+section: CUT VINYL (Graphtec 64 plotter)
+order: 330
+basis: SignOS
+applies_to:
+  when: COMPONENT=CUT_VINYL_DECAL OR GRAPHIC TYPE=Cut Vinyl|Contour Cut Vinyl|Translucent Cut Vinyl OR COVER
+    GRAPHICS~=Cut Vinyl OR FACE GRAPHICS~=Cut Vinyl OR FACE VINYL=Translucent Vinyl OR COMPONENT=ROUTED_FACE &
+    DIFFUSER=White Diffuser Vinyl
+standard: Add a hairline weed box 1/4" outside each separate graphic.
+why: The shop weeds and masks each piece cleanly (SignOS TASK_WEED_VINYL / TASK_MASK_VINYL).
+how_to: Rectangle tool around the piece; Property bar size = piece size + 0.5".

@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: P02
+version: 1.0.0
+section: DIGITAL PRINT (HP Latex 300 roll / HP Latex R1000 flatbed)
+order: 400
+basis: Industry
+applies_to:
+  when: COMPONENT=DIGITAL_PRINT_VINYL|BANNER OR GRAPHIC TYPE~=Print OR COVER GRAPHICS~=Print OR FACE
+    GRAPHICS~=Print OR FACE VINYL~=Print
+standard: 'Bleed: direct print to rigid (R1000 flatbed) 1/8" past trim; printed vinyl that is mounted then
+  trimmed 1/2". Safe zone: keep text and logos 1/2" inside trim (1" on anything over 4 ft).'
+why: Trimming drifts slightly; bleed stops white edges and the safe zone keeps copy from being cut.
+how_to: Put a trim rectangle on the PRODUCTION layer. Extend backgrounds past it. Contour tool > Inside 0.5"
+  for a non-printing safe line.

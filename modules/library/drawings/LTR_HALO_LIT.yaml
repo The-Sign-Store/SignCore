@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: LTR_HALO_LIT
+version: 1.0.0
+title: HALO LIT SECTION
+category: Letter Construction
+order: 120
+applies_to:
+  components:
+    - HALO_LETTERS
+    - MONUMENT_LETTERS
+    - CLOUD_SIGN_HALO
+  when: LETTER TYPE=Reverse Lit (Halo) OR LIGHTING=Halo Lit OR LIGHTING TYPE=Reverse Lit (Halo)
+notes: "Section: solid face, LEDs shine back through a clear back to wash the wall with light."

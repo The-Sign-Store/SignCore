@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: P03
+version: 1.0.0
+section: DIGITAL PRINT (HP Latex 300 roll / HP Latex R1000 flatbed)
+order: 410
+basis: SignOS
+applies_to:
+  when: COMPONENT=DIGITAL_PRINT_VINYL|BANNER OR GRAPHIC TYPE~=Print OR COVER GRAPHICS~=Print OR FACE
+    GRAPHICS~=Print OR FACE VINYL~=Print
+standard: Maximum print width is 64" (HP R1000 and HP 300 media limit). Larger graphics are tiled in panels up
+  to 60" wide with a 1/2" overlap. Seams fall on solid color, never through faces or small text, and the seam
+  is shown on the proof.
+why: 64" is the printer limit in SignOS (MACH_HP_R1000 BED_WIDTH, Printer_Max_Roll_Width).
+how_to: Draw panel rectangles 60" wide with 0.5" overlap; Object > PowerClip > Place Inside Frame to clip a
+  copy of the art into each.

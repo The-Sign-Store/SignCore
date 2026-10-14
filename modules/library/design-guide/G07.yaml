@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: G07
+version: 1.0.0
+section: EVERY PROOF
+order: 70
+basis: Industry
+standard: Plan readable copy at 1" of capital letter height for every 10 ft of viewing distance. If the main
+  copy is under 1" per 25 ft, flag it in the proof notes.
+why: This is the common sign industry legibility guideline. Undersized copy is the most common complaint after
+  install.

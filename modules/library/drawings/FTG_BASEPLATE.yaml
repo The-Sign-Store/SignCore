@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/drawing.schema.json
+schema: signcore.drawing/v1
+id: FTG_BASEPLATE
+version: 1.0.0
+title: BASE PLATE MOUNT
+category: Footers and Poles
+order: 200
+applies_to:
+  components:
+    - POLE
+  when: FOOTER=Surface Mount Base Plate
+notes: Pole welded to a base plate, bolted to anchor bolts in a concrete pier or slab.

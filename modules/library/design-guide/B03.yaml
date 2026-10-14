@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: B03
+version: 1.0.0
+section: BANNERS
+order: 600
+basis: House
+applies_to:
+  components:
+    - BANNER
+  when: POLE POCKETS=Yes
+standard: 'Pole pockets: standard 3" finished pocket unless the spec says otherwise, at {POCKET LOCATIONS|the
+  spec locations}. Add the pocket fold allowance to the art and keep copy out of the pocket area.'
+why: Copy inside the pocket is sewn over and hidden.

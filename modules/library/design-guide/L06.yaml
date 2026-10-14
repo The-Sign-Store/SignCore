@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: L06
+version: 1.0.0
+section: CHANNEL LETTERS AND HALO LETTERS
+order: 670
+basis: House
+applies_to:
+  components:
+    - HALO_LETTERS
+standard: 'Halo letters: stroke at least 1.5". Standoff {STANDOFFS|1.5 in} gives an even halo. Note the wall
+  surface; halo reads best on a solid, light wall. Show the night view.'
+why: Halo depends on the wall it lights; dark or broken surfaces swallow it.

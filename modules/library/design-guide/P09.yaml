@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../../schemas/rule.schema.json
+schema: signcore.rule/v1
+id: P09
+version: 1.0.0
+section: DIGITAL PRINT (HP Latex 300 roll / HP Latex R1000 flatbed)
+order: 470
+basis: SignOS
+applies_to:
+  when: MEDIA~=Wall
+standard: 'Wall graphics (GF 226, 3M IJ8624 textured): tile in panels with a 1/2" overlap and keep faces and
+  copy off the seams. Textured wall vinyl gets 3M 8524 laminate.'
