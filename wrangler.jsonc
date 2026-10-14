@@ -1,0 +1,13 @@
+{
+  // Cloudflare Workers config for `npm run cf:deploy` (OpenNext adapter).
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "signcore",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+  "observability": { "enabled": true },
+  // Change to "cloudflare-access" once Cloudflare Access protects the whole site.
+  "vars": { "AUTH_MODE": "password" }
+  // Secrets (set once each):  npx wrangler secret put DATABASE_URL   /   APP_PASSWORD   /   SESSION_SECRET
+}
