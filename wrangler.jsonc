@@ -1,5 +1,5 @@
 {
-  // Cloudflare Workers config for `npm run cf:deploy` (OpenNext adapter).
+  // Cloudflare Workers config (OpenNext adapter). Deployed by Workers Builds when main changes.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "signcore",
   "main": ".open-next/worker.js",
@@ -7,7 +7,11 @@
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
   "observability": { "enabled": true },
-  // Change to "cloudflare-access" once Cloudflare Access protects the whole site.
-  "vars": { "AUTH_MODE": "password" }
-  // Secrets (set once each):  npx wrangler secret put DATABASE_URL   /   APP_PASSWORD   /   SESSION_SECRET
+  // Settings live in the Cloudflare dashboard (Worker > Settings > Variables and Secrets), not here,
+  // so a deploy never overwrites them:
+  //   AUTH_MODE=cloudflare-access, ACCESS_TEAM_DOMAIN, ACCESS_AUD, ACCESS_ALLOWED_GROUPS (text)
+  //   DATABASE_URL (secret: the signcore_app connection, not the owner)
+  "keep_vars": true
+  // Once core.<your-domain> is added under Settings > Domains & Routes, you can turn off the workers.dev address:
+  // "workers_dev": false
 }
