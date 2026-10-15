@@ -12,7 +12,7 @@ const LINKS = [
   ['/export', 'Export'],
 ];
 
-export default function Nav({ actor }: { actor: string }) {
+export default function Nav({ actor, signOut }: { actor: string; signOut: string }) {
   const path = usePathname();
   if (path.startsWith("/login")) return <div className="noside" />;
   return (
@@ -23,7 +23,7 @@ export default function Nav({ actor }: { actor: string }) {
         return <Link key={href} href={href} className={on ? 'on' : ''} aria-current={on ? 'page' : undefined}>{label}</Link>;
       })}
       {actor && actor !== 'unknown' && (
-        <div className="who">Signed in as <b>{actor}</b><br /><a href="/login/logout">Sign out</a></div>
+        <div className="who">Signed in as <b>{actor}</b><br /><a href={signOut}>Sign out</a></div>
       )}
     </nav>
   );

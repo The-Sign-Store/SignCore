@@ -1,9 +1,12 @@
 import { login } from './actions';
 import LoginForm from './LoginForm';
+import { redirect } from 'next/navigation';
+import { authMode } from '@/lib/auth';
 
 export const dynamic = 'force-dynamic';
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ next?: string }> }) {
+  if (authMode() === 'cloudflare-access') redirect('/');
   const { next } = await searchParams;
   return (
     <div style={{ maxWidth: 380, margin: '10vh auto', padding: '0 16px' }}>

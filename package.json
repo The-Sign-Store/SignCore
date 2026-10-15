@@ -15,9 +15,11 @@
     "modules:check": "tsx scripts/modules/check.ts",
     "modules:publish": "tsx scripts/modules/publish.ts",
     "modules:roundtrip": "tsx scripts/modules/roundtrip.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "node scripts/migrate.mjs"
   },
   "dependencies": {
+    "jose": "6.2.12",
     "next": "15.5.26",
     "pg": "8.23.0",
     "react": "19.3.0",

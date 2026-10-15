@@ -1,0 +1,37 @@
+# After a merge to main: apply database migrations, then publish the modules into SignCore's production database.
+# Runs only once the NEON_OWNER_URL secret exists in the "production" environment
+# (Settings > Environments > production). Add required reviewers there to approve each publish by hand.
+name: Publish to production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency: publish-production
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      DATABASE_URL: ${{ secrets.NEON_OWNER_URL }}
+    steps:
+      - name: Skip until the database secret is set
+        if: ${{ env.DATABASE_URL == '' }}
+        run: echo "::notice::NEON_OWNER_URL is not set in the production environment, so nothing was published."
+      - uses: actions/checkout@v4
+        if: ${{ env.DATABASE_URL != '' }}
+      - uses: actions/setup-node@v4
+        if: ${{ env.DATABASE_URL != '' }}
+        with:
+          node-version: 22
+          cache: npm
+      - if: ${{ env.DATABASE_URL != '' }}
+        run: npm ci
+      - name: Apply migrations
+        if: ${{ env.DATABASE_URL != '' }}
+        run: npm run db:migrate
+      - name: Publish modules
+        if: ${{ env.DATABASE_URL != '' }}
+        run: npm run modules:publish

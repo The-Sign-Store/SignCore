@@ -31,46 +31,11 @@ Built-in checks:
 - Duplicate variables and IDs are refused.
 - Delete buttons ask you to click a second time.
 
-## 1. Create the database on Neon
+## Deploy
 
-1. Sign in at neon.tech and create a project named `signcore` in the region closest to you (US East).
-2. Click **Connect**, turn on **Connection pooling**, and copy the connection string. It looks like `postgresql://…-pooler….neon.tech/neondb?sslmode=require`.
-3. Load the tables and data. From this folder, on any computer with Node.js 20+:
-   ```
-   npm install
-   DATABASE_URL="paste-the-connection-string" npm run db:setup
-   ```
-   On Windows PowerShell: `$env:DATABASE_URL="…"; npm run db:setup`
+SignCore runs on **Cloudflare Workers**, keeps its data in **Neon** Postgres, and signs people in through **Authentik**, with **Cloudflare Access** acting as the gate in front of the app. The step-by-step guide is [docs/DEPLOY.md](docs/DEPLOY.md).
 
-   If you'd rather not use the command line, connect the Neon connector in Claude and Claude can load the data for you.
-
-## 2a. Deploy on Cloudflare (recommended)
-
-The free plan allows business use.
-
-1. Put this folder in a GitHub repository.
-2. In the Cloudflare dashboard, go to **Workers & Pages › Create › Import a repository** and pick the repo.
-   - Build command: `npx opennextjs-cloudflare build`
-   - Deploy command: `npx opennextjs-cloudflare deploy`
-3. In the Worker's **Settings › Variables and Secrets**, add three secrets:
-   - `DATABASE_URL`: the Neon string from step 1
-   - `APP_PASSWORD`: the team password for signing in
-   - `SESSION_SECRET`: any long random string (40+ characters)
-4. Redeploy. The app runs at `signcore.<your-subdomain>.workers.dev`.
-
-If you prefer the command line: run `npx wrangler login`, then `npx wrangler secret put DATABASE_URL` (and the same for the other two secrets), then `npm run cf:deploy`.
-
-**Optional: shop-email login with Cloudflare Access.** Access is free for teams under 50 people. In the Worker's **Settings › Domains & Routes**, turn on Cloudflare Access for the workers.dev address. Then, in Zero Trust › Access, set the policy to allow emails ending in `@signstoremacon.com`. Finally, change `AUTH_MODE` in `wrangler.jsonc` to `cloudflare-access` and redeploy. People then sign in with a one-time code sent to their email, and Change History records their email address. Only make this switch after Access is protecting the whole site.
-
-## 2b. Or deploy on Vercel
-
-Import the GitHub repo in Vercel; it detects Next.js on its own. Add the same three environment variables, plus `AUTH_MODE=password`, and deploy. Vercel's free Hobby plan is for non-commercial use only, so a business tool needs the Pro plan.
-
-## 3. Keep SignCore's Google Sheet in sync
-
-SignCore still reads the Google Sheet. After editing, open **Export**, download the CSV for each tab you changed, and in the Sheet use **File › Import › Upload › Replace current sheet** with "Convert text to numbers, dates, and formulas" set to **No**. Don't rename tabs or headers, because Code.gs reads them by name.
-
-The long-term fix is for SignCore to read from Neon directly, or for the app to write to the Sheet automatically. Both are possible next steps.
+SignCore's Export page can still produce CSVs in the Google Sheet's tab layout, for as long as anything reads the Sheet.
 
 ## Modules
 

@@ -33,7 +33,8 @@ jobs:
       - name: Database schema applies cleanly
         run: |
           psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -q -f db/schema.sql
-          psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -q -f db/migrations/002_modules.sql
+          npm run db:migrate
+          psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -q -v app_password="'ci-only-password-not-a-secret-123456'" -f db/roles.sql
       - name: Publish and export are exact opposites
         run: npm run modules:roundtrip
       - name: Build
